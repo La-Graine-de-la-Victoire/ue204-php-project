@@ -1,7 +1,7 @@
 <?php
 if(isset($_GET['id']) && isset($_GET['token'])){
-    require 'connexion_BD.php';
-    require 'functions.php';
+    require_once '../utils/dabaseDriver.php';
+    require_once '../utils/functions.php';
     $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE id = ? AND reset_token IS NOT NULL AND reset_token = ? AND reset_at > DATE_SUB(NOW(), INTERVAL 30 MINUTE)');
     $req->execute([$_GET['id'], $_GET['token']]);
     $user = $req->fetch();

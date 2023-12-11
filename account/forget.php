@@ -1,8 +1,8 @@
 <?php
 
 if(!empty($_POST) && !empty($_POST['email'])){
-    require_once 'connexion_BD.php';
-    require_once 'functions.php';
+    require_once '../utils/dabaseDriver.php';
+    require_once '../utils/functions.php';
     $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE email = ? AND confirmed_at IS NOT NULL');
     $req->execute([$_POST['email']]);
     $user = $req->fetch();
@@ -34,10 +34,10 @@ if(!empty($_POST) && !empty($_POST['email'])){
 
 <nav>
         <?php if(isset($_SESSION['auth'])): ?>
-            <a href="logout.php">Deconnexion</a>
+            <a href="/account/logout.php">Deconnexion</a>
             <?php else: ?>
-        <a href="register.php">Inscription</a>
-        <a href="login.php">Connexion</a>
+        <a href="/account/register.php">Inscription</a>
+        <a href="/account/login.php">Connexion</a>
         <?php endif; ?>
     </nav>
 
@@ -59,8 +59,8 @@ if(!empty($_POST) && !empty($_POST['email'])){
 <form action="" method="POST">
 
 <div class="form-group">
-    <label for="">Email</label>
-    <input type="email" name="email" />
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" />
 </div>
 
 <button type="submit">Se connecter</button>

@@ -1,7 +1,7 @@
 <?php
 $user_id = $_GET['id'];
 $token = $_GET['token'];
-require_once 'connexion_BD.php';
+require_once '../utils/dabaseDriver.php';
 $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE id = ?');
 $req->execute([$user_id]);
 $user = $req->fetch();

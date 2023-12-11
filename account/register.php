@@ -4,7 +4,7 @@ session_start();
 
 <?php
 
-require_once 'functions.php';
+require_once '../utils/functions.php';
 
 if(isset($_POST['forminscription'])) {
     $nom = htmlspecialchars($_POST['nom']);
@@ -16,7 +16,7 @@ if(isset($_POST['forminscription'])) {
 if(!empty($_POST)){
 
     $errors = array();
-    require_once 'connexion_BD.php';
+    require_once '../utils/dabaseDriver.php';
 
     if(empty($_POST['nom']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['nom'])){
         $errors['nom'] = "Votre pseudo n'est pas valide (alphanumérique)";
@@ -42,7 +42,7 @@ if(!empty($_POST)){
     }
 
     if(empty($errors)){
-    require_once 'connexion_BD.php';
+    require_once '../utils/dabaseDriver.php';
     $req = $pdo->prepare("INSERT INTO utilisateurs SET nom = ?, prenom = ?, password = ?, email = ?, type = 'user', confirmation_token = ?");
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     $token = str_random(60);
@@ -50,11 +50,11 @@ if(!empty($_POST)){
     // On envoit l'email de confirmation
     $user_id = $pdo->lastInsertId();
     $header="MIME-Version: 1.0\r\n";
-    $header.='From:"[VOUS]"<assiaikerchalene91@gmail.com>'."\n";
+    $header.='From:"[JoueTopia]"<JoueTopia@gmail.com>'."\n";
     $header.='Content-Type:text/html; charset="uft-8"'."\n";
     $header.='Content-Transfer-Encoding: 8bit';
     $message = '
-    <html>
+    <html lang="fr">
     <body>
     <h1 align="center">LOGO</h1>
     <p>

@@ -9,15 +9,15 @@
 <body>
 
 <div>
-    <a href="mon_compte.php">MON COMPTE</a>
+    <a href="/account/account.php">MON COMPTE</a>
 </div>       
 
 <div>
-    <a href="mes_commandes.php">MES COMMANDES</a>
+    <a href="/account/orders.php">MES COMMANDES</a>
 </div>     
 
 <div>
-    <a href="parametres.php">PARAMETRES</a>
+    <a href="/account/account.php">PARAMETRES</a>
 </div>  
 
 </body>

@@ -1,8 +1,8 @@
 <?php
-require_once 'functions.php';
+require_once '../utils/functions.php';
 reconnect_from_cookie();
 if(!empty($_POST) && !empty($_POST['nom']) && !empty($_POST['password'])){
-    require_once 'connexion_BD.php';
+    require_once '../utils/dabaseDriver.php';
     $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE (nom = :nom OR email = :nom) AND confirmed_at IS NOT NULL');
     $req->execute(['nom' => $_POST['nom']]);
     $user = $req->fetch();
@@ -63,11 +63,11 @@ if($user->type == 'admin'){
 
 <h1 class="titre_connexion">Connexion</h1>
 
-    <label for="">Email</label><br>
-    <input type="text" name="nom" placeholder="Entrez votre email" required/>
+    <label for="nom">Email</label><br>
+    <input type="text" name="nom" id="nom" placeholder="Entrez votre email" required/>
 
-    <label for="" class="box-register">Mot de passe<a href="forget.php">(Mot de passe oubliée?)</a></label><br>
-    <input type="password" name="password" placeholder="Mot de passe" required/>
+    <label for="password" class="box-register">Mot de passe<a href="forget.php">(Mot de passe oubliée?)</a></label><br>
+    <input type="password" name="password" id="password" placeholder="Mot de passe" required/>
 
 <div class="form-group">
     <label>
@@ -78,7 +78,7 @@ if($user->type == 'admin'){
 <button type="submit" name="submit" id="connecter">Se connecter</button>
 
 <p class="box-register">Vous êtes nouveau ici? 
-  <a href="register.php">S'inscrire</a>
+  <a href="/account/register.php">S'inscrire</a>
 </p>
 
 </form>
