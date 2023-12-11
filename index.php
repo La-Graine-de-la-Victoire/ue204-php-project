@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,7 +29,12 @@
             </button>
         </div>
         <div class="connexion">
-            <a href="/account/login.php" class="button-connect">Connexion</a>
+            <?php
+            echo array_key_exists('auth', $_SESSION) ?
+                    $_SESSION['auth']->role == 'admin'? '<a href="/admin/index.php" class="button-connect">Administration</a>' :
+                        '<a href="/account/profile.php" class="button-connect">Mon compte</a>' :
+                    '<a href="/account/login.php" class="button-connect">Se connecter</a>';
+            ?>
         </div>
         <div class="panier">
             <a href="/account/orders.php">

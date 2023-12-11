@@ -14,15 +14,16 @@ if(isset($_POST['forminscription'])) {
     $password_confirm = sha1($_POST['password_confirm']);
 
 if(!empty($_POST)){
+    var_dump($_POST);
 
     $errors = array();
     require_once '../utils/dabaseDriver.php';
 
-    if(empty($_POST['nom']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['nom'])){
+    if(empty($_POST['nom']) || !preg_match('/^[a-zA-Z0-9_ ]+$/', $_POST['nom'])){
         $errors['nom'] = "Votre pseudo n'est pas valide (alphanumérique)";
     }
 
-    if(empty($_POST['prenom']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['prenom'])){
+    if(empty($_POST['prenom']) || !preg_match('/^[a-zA-Z0-9_ ]+$/', $_POST['prenom'])){
         $errors['prenom'] = "Votre pseudo n'est pas valide (alphanumérique)";
     }
 
@@ -43,7 +44,9 @@ if(!empty($_POST)){
 
     if(empty($errors)){
     require_once '../utils/dabaseDriver.php';
-    $req = $pdo->prepare("INSERT INTO users SET lastName = ?, firstName = ?, password = ?, email = ?, role = 'user', confirmationToken = ?");
+    $req = $pdo->prepare(
+            "INSERT INTO users SET lastName = ?, firstName = ?, password = ?, email = ?, role = 'user', confirmationToken = ?, creationDate = NOW()"
+    );
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     $token = str_random(60);
     $req->execute(array($nom, $prenom, $password, $email, $token));
