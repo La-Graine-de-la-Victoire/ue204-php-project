@@ -3,7 +3,7 @@ require_once '../utils/functions.php';
 reconnect_from_cookie();
 if(!empty($_POST) && !empty($_POST['nom']) && !empty($_POST['password'])){
     require_once '../utils/dabaseDriver.php';
-    $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE (nom = :nom OR email = :nom) AND confirmed_at IS NOT NULL');
+    $req = $pdo->prepare('SELECT * FROM users WHERE (lastName = :nom OR email = :nom) AND confirmedAt IS NOT NULL');
     $req->execute(['nom' => $_POST['nom']]);
     $user = $req->fetch();
     if($user == null){
@@ -15,7 +15,7 @@ if(!empty($_POST) && !empty($_POST['nom']) && !empty($_POST['password'])){
 // dans la partie login 
 if($_POST['remember']){
     $remember_token = str_random(250);
-    $pdo->prepare('UPDATE utilisateurs SET remember_token = ? WHERE id = ?')->execute([$remember_token, $user->id]);
+    $pdo->prepare('UPDATE users SET rememberToken = ? WHERE id = ?')->execute([$remember_token, $user->id]);
     setcookie('remember', $user->id . '==' . $remember_token . sha1($user->id . 'ratonlaveurs'), time() + 60 * 60 * 24 * 7);
 }
 

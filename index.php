@@ -25,10 +25,10 @@
             </button>
         </div>
         <div class="connexion">
-            <a href="lien/vers/page/de/connexion" class="button-connect">Connexion</a>
+            <a href="/account/login.php" class="button-connect">Connexion</a>
         </div>
         <div class="panier">
-            <a href="lien/vers/ton/panier">
+            <a href="/account/orders.php">
                 <img src="./assets/medias/panier.png" alt="Panier">
             </a>
         </div>

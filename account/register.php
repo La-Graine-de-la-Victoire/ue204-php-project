@@ -29,7 +29,7 @@ if(!empty($_POST)){
     if(empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
         $errors['email'] = "Votre email n'est pas valide";
     } else {
-        $req = $pdo->prepare('SELECT id FROM utilisateurs WHERE email = ?');
+        $req = $pdo->prepare('SELECT id FROM users WHERE email = ?');
         $req->execute([$_POST['email']]);
         $user = $req->fetch();
         if($user){
@@ -43,7 +43,7 @@ if(!empty($_POST)){
 
     if(empty($errors)){
     require_once '../utils/dabaseDriver.php';
-    $req = $pdo->prepare("INSERT INTO utilisateurs SET nom = ?, prenom = ?, password = ?, email = ?, type = 'user', confirmation_token = ?");
+    $req = $pdo->prepare("INSERT INTO users SET lastName = ?, firstName = ?, password = ?, email = ?, role = 'user', confirmationToken = ?");
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     $token = str_random(60);
     $req->execute(array($nom, $prenom, $password, $email, $token));
@@ -56,7 +56,7 @@ if(!empty($_POST)){
     $message = '
     <html lang="fr">
     <body>
-    <h1 align="center">LOGO</h1>
+    <h1 style="text-align: center">LOGO</h1>
     <p>
     Bonjour '.$prenom.', <br>
 

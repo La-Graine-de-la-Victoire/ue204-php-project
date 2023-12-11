@@ -10,7 +10,7 @@ if(!empty($_POST)){
         $user_id = $_SESSION['auth']->id;
         $password= password_hash($_POST['password'], PASSWORD_BCRYPT);
         require_once '../utils/dabaseDriver.php';
-        $pdo->prepare('UPDATE utilisateurs SET password = ? WHERE id = ?')->execute([$password,$user_id]);
+        $pdo->prepare('UPDATE users SET password = ? WHERE id = ?')->execute([$password,$user_id]);
         $_SESSION['flash']['success'] = "Votre mot de passe a bien été mis à jour";
     }
 
