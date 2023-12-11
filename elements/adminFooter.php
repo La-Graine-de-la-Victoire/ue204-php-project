@@ -7,7 +7,8 @@
             <li><a href="">Conditions générales d'utilisation</a></li>
         </ul>
         <ul class="admin-footer-links">
-            <li><a href="/account/profile.php">Mon espace réservé</a></li>
+            <li>Mon espace réservé</li>
+            <li><a href="/account/profile.php">Mon compte</a></li>
             <li><a href="/admin">Espace administration</a></li>
         </ul>
     </div>

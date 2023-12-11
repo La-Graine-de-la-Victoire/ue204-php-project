@@ -1,18 +1,251 @@
-/* Ajustement des marges pour la page */
-body {
+*,
+*:after,
+*:before {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body {
-    font-family: 'Jost', sans-serif;
+/*formulaire de connexion*/
+
+.body_connexion{
+    background: #106C5C;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-h1, h2 {
-    font-family: 'Irish Grover';
+#container_connexion{
+    width:400px;
+    margin:0 auto;
+    margin-top:10%;
+}
+/* Bordered form */
+.formulaire_connexion {
+    width:100%;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.titre_connexion{
+    width: 38%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: black;
 }
 
-/* Styles pour aligner les éléments horizontalement */
+/* Full-width inputs */
+input[type=email], input[type=password], input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+#connecter, #inscrire {
+    background-color: #FFB100;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type=submit]:hover {
+    background-color: white;
+    color: #f6844f;
+    border: 1px solid #f6844f;
+}
+
+
+
+.box-register{
+    font-size: 12px;
+}
+
+.box-register a{
+    color: grey;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/*-----------------Fin du formulaire de connexion-------------------*/
+
+.les_formulaires {
+    width: 794px;
+    height: 800px;
+    padding: 10px 50px 10px 50px;
+    margin: auto;
+}
+
+.les_formulaires div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+}
+
+textarea {
+    color: rgb(153, 151, 151);
+    width: 695px;
+    height: 180px;
+}
+
+.les_formulaires input {
+    width: 100%;
+    height: 37px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Email {
+    width: 417px;
+    height: 37px;
+}
+
+.information {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.corps_inscription {
+    background-image: url("../images/contact.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.form_inscription {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: auto;
+    height: 1200px;
+
+}
+
+
+.form_inscription h3 {
+    color: white;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.form_inscription label {
+    color: white;
+}
+
+.form_inscription .civilite input {
+    border-radius: 5px;
+    height: 20px;
+    width: 30px;
+}
+
+.form_inscription input {
+    border-radius: 20px;
+    height: 35px;
+    width: 500px;
+}
+
+.form_inscription p,
+a {
+    font-size: 10px;
+    color: white;
+}
+
+.form_inscription #inscrire,
+#submit_button {
+    width: 200px;
+    height: 50px;
+    background-color: #106C5C;
+    color: white;
+    border-color: white;
+}
+
+form .zone_texte_form {
+    justify-content: center;
+    align-items: center;
+}
+
+#submit_button {
+    width: 100%;
+}
+
+.formulaire_contact{
+    margin-bottom: 100px;
+}
+
+.formulaire_contact input {
+    border-radius: 20px;
+    height: 35px;
+    width: 100%;
+    justify-content: center;
+}
+
+.formulaire_contact textarea {
+    border-radius: 20px;
+    padding: 8px 8px;
+}
+
+.button-connect {
+    background-color: #106C5C;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 1px 10px #106c5d8a;
+}
+
+.button-connect:hover {
+    background-color:  #DE2309;
+}
+
+/* Style de base pour le menu */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+
+/* Style du sous-menu */
+ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #106C5C;
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    width: 150px;
+}
+
+li:hover > ul {
+    display: block;
+}
+
 header {
     padding: 20px 0;
     background-color: white;
@@ -34,7 +267,7 @@ header {
 
 /* Styles pour les éléments individuels du header */
 .logo img {
-    max-width: 280px; 
+    max-width: 280px;
     height: auto;
 }
 
@@ -46,13 +279,13 @@ header {
 /* Ajustement de la taille de la barre de recherche */
 
 .search-bar input[type="text"] {
-    padding: 12px 30px; 
-    font-size: 18px; 
-    border-radius: 25px 0 0 25px; 
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 25px 0 0 25px;
     border: 1px solid #ccc;
     outline: none;
     background-color: #F4F4F4;
-    width: 500px; 
+    width: 500px;
     height: 15px;
 }
 
@@ -64,7 +297,7 @@ header {
 /* Ajustement du bouton "Rechercher" */
 .search-bar button {
     padding: 5px 10px;
-    border-radius: 0 50px 50px 0; 
+    border-radius: 0 50px 50px 0;
     border: none;
     background-color: #DE2309;
     cursor: pointer;
@@ -79,13 +312,13 @@ header {
 
 /* Styles pour le bouton "Rechercher" */
 .button-search img {
-    max-width: 30px; 
+    max-width: 30px;
     height: auto;
 }
 
 /* Styles pour les autres éléments du header */
 .panier img {
-    max-width: 35px; 
+    max-width: 35px;
     height: auto;
 }
 
@@ -107,21 +340,21 @@ header {
 .slideshow {
     position: relative;
     width: 100%;
-    height: 75vh; 
+    height: 75vh;
     overflow: hidden;
 }
 
 .slideshow-container {
     display: flex;
-    width: 300%; 
-    transition: transform 1s ease; 
+    width: 300%;
+    transition: transform 1s ease;
 }
 
 .slide {
-    width: 100vw; 
-    height: 100vh; 
+    width: 100vw;
+    height: 100vh;
     position: absolute;
-    opacity: 0; 
+    opacity: 0;
     animation: slide 20s infinite;
 }
 
@@ -129,7 +362,6 @@ header {
     position: absolute;
     left: 20px;
     color: #DE2309;
-    font-size: 24px;
     top: 200px;
     width: 50%;
     margin-left: 150px;
@@ -143,7 +375,7 @@ header {
 .slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 /* Animation pour le diaporama */
@@ -168,11 +400,11 @@ header {
 }
 
 .slide:nth-child(2) {
-    animation-delay: 5s; 
+    animation-delay: 5s;
 }
 
 .slide:nth-child(3) {
-    animation-delay: 10s; 
+    animation-delay: 10s;
 }
 
 /* Section produits */
@@ -189,25 +421,25 @@ header {
 
 .jouets-new .articles-container {
     display: flex;
-    justify-content: space-between; 
-    flex-wrap: wrap; 
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .article {
-    width: 300px; 
-    text-align: center; 
-    margin-bottom: 20px; 
+    width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .article .product {
-    width: 280px; 
+    width: 280px;
     height: auto;
     border-radius: 20px;
 }
 
 .article button {
     padding: 10px 30px;
-    background-color: #FFB100; 
+    background-color: #FFB100;
     color: white;
     border: none;
     border-radius: 50px;
@@ -218,11 +450,11 @@ header {
 }
 
 .article .description-product {
-   font-size: 15px;
+    font-size: 15px;
 }
 
 .article button:hover {
-    background-color: #106C5C; 
+    background-color: #106C5C;
 }
 
 .price {
@@ -232,8 +464,8 @@ header {
 }
 
 .rating .star {
-font-size: 25px;
-color: #FFB100; 
+    font-size: 25px;
+    color: #FFB100;
 }
 
 /* Styles du footer */
@@ -242,55 +474,51 @@ color: #FFB100;
     color: #fff;
     padding: 50px 0;
     height: 170px;
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 1200px;
     margin: 0 auto;
-  }
-  
-  .footer-content {
+}
+
+.footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-  }
+}
 
-  .about p {
+.about p {
     width: 80%;
-  }
-  
-  .footer-section {
+}
+
+.footer-section {
     flex: 1;
     margin-bottom: 20px;
-  }
-  
-  .footer-section h2 {
+}
+
+.footer-section h2 {
     margin-bottom: 10px;
-  }
-  
-  .footer-section ul {
+}
+
+.footer-section ul {
     list-style: none;
     padding: 0;
-  }
-  
-  .footer-section ul li {
+}
+
+.footer-section ul li {
     margin-bottom: 8px;
-  }
-  
-  .footer-section ul li a {
+}
+
+.footer-section ul li a {
     color: #fff;
     text-decoration: none;
-  }
-  
-  .footer-bottom {
+}
+
+.footer-bottom {
     text-align: center;
     padding-top: 10px;
     background-color: #222;
     color: #ccc;
     font-size: 14px;
     height: 30px;
-  }
-
-
-
-  
+}

@@ -9,49 +9,55 @@ include "../elements/adminTop.php";
 ?>
 
 <div class="admin-body">
-    <section id="admin-home-cards" class="admin-cards-box">
-        <div class="admin-card">
-            <div class="card-title">
-                <?php echo $counter->countUsers(); ?>
+    <section class="admin-cards-box">
+        <div class="column">
+            <div class="row jc-sa card-line">
+                <div class="admin-card" id="countOfUsers">
+                    <div class="card-title">
+                        <p><?php echo $counter->countUsers(); ?></p>
+                    </div>
+                    <div class="card-body">
+                        <p>Utilisateurs enregistrés</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/admin/user/list.php">Administrer</a>
+                    </div>
+                </div>
+                <div class="admin-card"id="countOfProducts">
+                    <div class="card-title">
+                        <p><?php echo $counter->countProducts(); ?></p>
+                    </div>
+                    <div class="card-body">
+                        <p>Produits enregistrés</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/admin/product/list.php">Administrer</a>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <p>Utilisateurs enregistrés</p>
-            </div>
-            <div class="card-footer">
-                <a href="/admin/user/list.php">Administrer</a>
-            </div>
-        </div>
-        <div class="admin-card">
-            <div class="card-title">
-                <?php echo $counter->countProducts(); ?>
-            </div>
-            <div class="card-body">
-                <p>Produits enregistrés</p>
-            </div>
-            <div class="card-footer">
-                <a href="/admin/product/list.php">Administrer</a>
-            </div>
-        </div>
-        <div class="admin-card">
-            <div class="card-title">
-                <?php echo $counter->countNotFinishedOrders() ?>
-            </div>
-            <div class="card-body">
-                <p>Commandes non-abouties</p>
-            </div>
-            <div class="card-footer">
-                <a href="/admin/order/list.php">Gérer</a>
-            </div>
-        </div>
-        <div class="admin-card">
-            <div class="card-title">
-                <?php echo $counter->countNotConfirmedBaskets() ?>
-            </div>
-            <div class="card-body">
-                <p>paniers non-confirmés</p>
-            </div>
-            <div class="card-footer">
-                <a href="/admin/order/list.php">Visualiser</a>
+            <div class="row jc-sa card-line">
+                <div class="admin-card" id="countOfOrders">
+                    <div class="card-title">
+                        <p><?php echo $counter->countNotFinishedOrders() ?></p>
+                    </div>
+                    <div class="card-body">
+                        <p>Commandes non-abouties</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/admin/order/list.php">Gérer</a>
+                    </div>
+                </div>
+                <div class="admin-card" id="countOfBaskets">
+                    <div class="card-title">
+                        <p><?php echo $counter->countNotConfirmedBaskets() ?></p>
+                    </div>
+                    <div class="card-body">
+                        <p>paniers non-confirmés</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/admin/order/list.php">Visualiser</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
