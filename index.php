@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Phudu:wght@800&family=Poppins:wght@400;900&display=swap" rel="stylesheet">
@@ -20,12 +20,12 @@
 <header>
     <div class="header-container">
         <div class="logo">
-            <img src="./assets/medias/logo-jouetopia.png" alt="Logo JoueTopia">
+            <img src="./assets/images/logo-jouetopia.png" alt="Logo JoueTopia">
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Rechercher" class="rounded-input">
             <button type="submit" class="button-search">
-                <img src="./assets/medias/chercher.png" alt="Rechercher">
+                <img src="./assets/images/chercher.png" alt="Rechercher">
             </button>
         </div>
         <div class="connexion">
@@ -38,7 +38,7 @@
         </div>
         <div class="panier">
             <a href="/account/orders.php">
-                <img src="./assets/medias/panier.png" alt="Panier">
+                <img src="./assets/images/panier.png" alt="Panier">
             </a>
         </div>
     </div>
@@ -47,21 +47,21 @@
 <section class="slideshow">
     <div class="slideshow-container">
         <div class="slide">
-            <img src="./assets/medias/header-un.png" alt="header">
+            <img src="./assets/images/header-un.png" alt="header">
             <div class="slide-text">
                 <h1>-20% sur tous nos jouets </h1>
                 <p class="accroche">Rejoignez-nous dans l'univers magique de JoueTopia et offrez à vos enfants le plaisir infini du jeu !</p>
             </div>
         </div>
         <div class="slide">
-            <img src="./assets/medias/header-deux.png" alt="header-deux">
+            <img src="./assets/images/header-deux.png" alt="header-deux">
             <div class="slide-text">
                 <h2>Cultivez l'épanouissement de votre enfant</h2>
                 <p class="accroche">Offrez à votre enfant bien plus qu'un simple jouet : favorisez son éveil, sa créativité et son apprentissage tout en lui offrant des moments inoubliables de bonheur et de découverte !</p>
             </div>
         </div>
         <div class="slide">
-            <img src="./assets/medias/header-trois.png" alt="header-trois">
+            <img src="./assets/images/header-trois.png" alt="header-trois">
             <div class="slide-text">
                 <h2>Émerveillez les yeux de vos enfants : offrez-leur des jouets magiques !</h2>
                 <p class="accroche">Transformez Noël en un festival de joie et d'émerveillement pour vos enfants en leur offrant des jouets qui feront briller leurs yeux de bonheur et de surprise !</p>
@@ -74,7 +74,7 @@
     <h2>Nos dernières nouveautés </h2>
     <div class="articles-container">
         <div class="article">
-            <img src="./assets/medias/uno.png" class="product" alt="uno">
+            <img src="./assets/images/uno.png" class="product" alt="uno">
             <div class="rating">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -88,7 +88,7 @@
         </div>
 
         <div class="article">
-            <img src="./assets/medias/jenga.png" class="product" alt="jenga">
+            <img src="./assets/images/jenga.png" class="product" alt="jenga">
             <div class="rating">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -102,7 +102,7 @@
         </div>
 
         <div class="article">
-            <img src="./assets/medias/ris-perd.png" class="product" alt="ris-perd">
+            <img src="./assets/images/ris-perd.png" class="product" alt="ris-perd">
             <div class="rating">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -116,7 +116,7 @@
         </div>
 
         <div class="article">
-            <img src="./assets/medias/puissance-4.png" class="product" alt="puissance-4">
+            <img src="./assets/images/puissance-4.png" class="product" alt="puissance-4">
             <div class="rating">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -135,7 +135,7 @@
     <h2>Nos meilleurs ventes </h2>
     <div class="articles-container">
         <div class="article">
-            <img src="./assets/medias/chiot.png" class="product" alt="chiot">
+            <img src="./assets/images/chiot.png" class="product" alt="chiot">
             <div class="rating">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -149,7 +149,7 @@
         </div>
 
         <div class="article">
-            <img src="./assets/medias/jeu-lego.png" class="product" alt="jeu-lego">
+            <img src="./assets/images/jeu-lego.png" class="product" alt="jeu-lego">
             <div class="rating">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -163,7 +163,7 @@
         </div>
 
         <div class="article">
-            <img src="./assets/medias/jeu-ludique.png" class="product" alt="jeu-ludique">
+            <img src="./assets/images/jeu-ludique.png" class="product" alt="jeu-ludique">
             <div class="rating">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -177,7 +177,7 @@
         </div>
 
         <div class="article">
-            <img src="./assets/medias/voiture.png" class="product" alt="voiture">
+            <img src="./assets/images/voiture.png" class="product" alt="voiture">
             <div class="rating">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
