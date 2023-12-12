@@ -9,240 +9,516 @@
 /*formulaire de connexion*/
 
 .body_connexion{
-  background: #106C5C;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
- }
- 
- #container_connexion{
-  width:400px;
-  margin:0 auto;
-  margin-top:10%;
- }
- /* Bordered form */
- .formulaire_connexion {
-  width:100%;
-  padding: 30px;
-  border: 1px solid #f1f1f1;
-  background: #fff;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
- }
- .titre_connexion{
-  width: 38%;
-  margin: 0 auto;
-  padding-bottom: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
-  color: black;
- }
- 
- /* Full-width inputs */
- input[type=email], input[type=password], input[type=text] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
- }
- 
- /* Set a style for all buttons */
- #connecter, #inscrire {
-  background-color: #FFB100;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
- }
+    background: #106C5C;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
- input[type=submit]:hover {
-  background-color: white;
-  color: #f6844f;
-  border: 1px solid #f6844f;
- }
+#container_connexion{
+    width:400px;
+    margin:0 auto;
+    margin-top:10%;
+}
+/* Bordered form */
+.formulaire_connexion {
+    width:100%;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.titre_connexion{
+    width: 38%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: black;
+}
 
- 
+/* Full-width inputs */
+input[type=email], input[type=password], input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
 
- .box-register{
-  font-size: 12px;
- }
+/* Set a style for all buttons */
+#connecter, #inscrire {
+    background-color: #FFB100;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
 
- .box-register a{
-  color: grey;
-  text-decoration: none;
-  font-size: 12px;
- }
+input[type=submit]:hover {
+    background-color: white;
+    color: #f6844f;
+    border: 1px solid #f6844f;
+}
+
+
+
+.box-register{
+    font-size: 12px;
+}
+
+.box-register a{
+    color: grey;
+    text-decoration: none;
+    font-size: 12px;
+}
 
 /*-----------------Fin du formulaire de connexion-------------------*/
 
 .les_formulaires {
-  width: 794px;
-  height: 800px;
-  padding: 10px 50px 10px 50px;
-  margin: auto;
+    width: 794px;
+    height: 800px;
+    padding: 10px 50px 10px 50px;
+    margin: auto;
 }
 
 .les_formulaires div {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-  font-size: 15px;
-  font-weight: bold;
-  text-align: left;
-  margin-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
 }
 
 textarea {
-  color: rgb(153, 151, 151);
-  width: 695px;
-  height: 180px;
+    color: rgb(153, 151, 151);
+    width: 695px;
+    height: 180px;
 }
 
 .les_formulaires input {
-  width: 100%;
-  height: 37px;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: 37px;
+    justify-content: center;
+    align-items: center;
 }
 
 .Email {
-  width: 417px;
-  height: 37px;
+    width: 417px;
+    height: 37px;
 }
 
 .information {
-  display: flex;
-  align-items: center;
-  justify-content: left;
+    display: flex;
+    align-items: center;
+    justify-content: left;
 }
 
 .corps_inscription {
-  background-image: url("media/contact.jpg");
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+    background-image: url("../images/contact.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 
 .form_inscription {
-  background-color: rgba(0, 0, 0, 0.5);
-  margin: auto;
-  height: 1200px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: auto;
+    height: 1200px;
 
 }
 
 
 .form_inscription h3 {
-  color: white;
-  font-size: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+    color: white;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .form_inscription label {
-  color: white;
+    color: white;
 }
 
 .form_inscription .civilite input {
-  border-radius: 5px;
-  height: 20px;
-  width: 30px;
+    border-radius: 5px;
+    height: 20px;
+    width: 30px;
 }
 
 .form_inscription input {
-  border-radius: 20px;
-  height: 35px;
-  width: 500px;
+    border-radius: 20px;
+    height: 35px;
+    width: 500px;
 }
 
 .form_inscription p,
 a {
-  font-size: 10px;
-  color: white;
+    font-size: 10px;
+    color: white;
 }
 
 .form_inscription #inscrire,
 #submit_button {
-  width: 200px;
-  height: 50px;
-  background-color: #106C5C;
-  color: white;
-  border-color: white;
+    width: 200px;
+    height: 50px;
+    background-color: #106C5C;
+    color: white;
+    border-color: white;
 }
 
 form .zone_texte_form {
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 #submit_button {
-  width: 100%;
+    width: 100%;
 }
 
 .formulaire_contact{
-  margin-bottom: 100px;
+    margin-bottom: 100px;
 }
 
 .formulaire_contact input {
-  border-radius: 20px;
-  height: 35px;
-  width: 100%;
-  justify-content: center;
+    border-radius: 20px;
+    height: 35px;
+    width: 100%;
+    justify-content: center;
 }
 
 .formulaire_contact textarea {
-  border-radius: 20px;
-  padding: 8px 8px;
+    border-radius: 20px;
+    padding: 8px 8px;
 }
 
 .button-connect {
-  background-color: #106C5C;
-  padding: 12px 30px;
-  font-size: 16px;
-  border-radius: 50px;
-  text-decoration: none;
-  color: white;
-  box-shadow: 0 1px 10px #106c5d8a;
+    background-color: #106C5C;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 1px 10px #106c5d8a;
 }
 
 .button-connect:hover {
-  background-color:  #DE2309;
+    background-color:  #DE2309;
 }
 
 /* Style de base pour le menu */
 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 li {
-  display: inline-block;
-  margin-right: 20px;
-  position: relative;
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
 }
 
 /* Style du sous-menu */
 ul ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #106C5C;
-  padding: 10px;
-  border-radius: 0 0 5px 5px;
-  width: 150px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #106C5C;
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    width: 150px;
 }
 
 li:hover > ul {
-  display: block;
+    display: block;
 }
 
+header {
+    padding: 20px 0;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Styles pour les éléments individuels du header */
+.logo img {
+    max-width: 280px;
+    height: auto;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+/* Ajustement de la taille de la barre de recherche */
+
+.search-bar input[type="text"] {
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: #F4F4F4;
+    width: 500px;
+    height: 15px;
+}
+
+.rounded-input {
+    box-shadow: 0 1px 10px #106c5d8a;
+}
+
+
+/* Ajustement du bouton "Rechercher" */
+.search-bar button {
+    padding: 5px 10px;
+    border-radius: 0 50px 50px 0;
+    border: none;
+    background-color: #DE2309;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 1px 10px #106c5d8a;
+    height: 42px;
+}
+
+.search-bar :hover {
+    background-color: #106C5C;
+}
+
+/* Styles pour le bouton "Rechercher" */
+.button-search img {
+    max-width: 30px;
+    height: auto;
+}
+
+/* Styles pour les autres éléments du header */
+.panier img {
+    max-width: 35px;
+    height: auto;
+}
+
+.button-connect {
+    background-color: #106C5C;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 1px 10px #106c5d8a;
+}
+
+.button-connect:hover {
+    background-color:  #DE2309;
+}
+
+/* Stylisation de la section de diaporama */
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    display: flex;
+    width: 300%;
+    transition: transform 1s ease;
+}
+
+.slide {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    opacity: 0;
+    animation: slide 20s infinite;
+}
+
+.slide .slide-text {
+    position: absolute;
+    left: 20px;
+    color: #DE2309;
+    top: 200px;
+    width: 50%;
+    margin-left: 150px;
+    font-size: 30px;
+}
+
+.accroche {
+    color: #106C5C;
+    font-size: 20px;
+}
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animation pour le diaporama */
+@keyframes slide {
+    0%{
+        opacity: 0;
+    }
+    2%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    52%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Stylisation de chaque slide */
+.slide:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+    animation-delay: 5s;
+}
+
+.slide:nth-child(3) {
+    animation-delay: 10s;
+}
+
+/* Section produits */
+
+.jouets-new {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.jouets-new h2 {
+    color: #106C5C;
+    font-size: 50px;
+}
+
+.jouets-new .articles-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.article {
+    width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.article .product {
+    width: 280px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.article button {
+    padding: 10px 30px;
+    background-color: #FFB100;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 15px;
+    width: 80%;
+    box-shadow: 0 1px 10px #106c5d8a;
+}
+
+.article .description-product {
+    font-size: 15px;
+}
+
+.article button:hover {
+    background-color: #106C5C;
+}
+
+.price {
+    color: #106C5C;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.rating .star {
+    font-size: 25px;
+    color: #FFB100;
+}
+
+/* Styles du footer */
+.site-footer {
+    background-color: #106C5C;
+    color: #fff;
+    padding: 50px 0;
+    height: 170px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.about p {
+    width: 80%;
+}
+
+.footer-section {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.footer-section h2 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    background-color: #222;
+    color: #ccc;
+    font-size: 14px;
+    height: 30px;
+}
