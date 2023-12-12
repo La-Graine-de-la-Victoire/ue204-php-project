@@ -41,7 +41,7 @@ include "../elements/adminTop.php";
                         <p><?php echo $counter->countNotFinishedOrders() ?></p>
                     </div>
                     <div class="card-body">
-                        <p>Commandes non-abouties</p>
+                        <p>Commandes en cours</p>
                     </div>
                     <div class="card-footer">
                         <a href="/admin/order/list.php">Gérer</a>
@@ -55,7 +55,7 @@ include "../elements/adminTop.php";
                         <p>paniers non-confirmés</p>
                     </div>
                     <div class="card-footer">
-                        <a href="/admin/order/list.php">Visualiser</a>
+                        <a href="/admin/order/list.php?mode=baskets">Visualiser</a>
                     </div>
                 </div>
             </div>

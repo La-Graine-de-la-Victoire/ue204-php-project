@@ -407,6 +407,16 @@ td {
     padding: 1rem 0 !important;
 }
 
+.table-link,
+.table-link:visited{
+    color: var(--blueColor);
+    text-decoration: none;
+}
+
+.table-link:hover {
+    text-decoration: underline;
+}
+
 .button {
     display: flex;
     justify-content: center;
@@ -523,4 +533,49 @@ td {
 .form h2 {
     margin-top: 4rem;
     margin-bottom: 1.5rem;
+}
+
+.box-status {
+    padding: 1rem 2rem;
+    border-radius: .25rem;
+    color: var(--whiteColor);
+}
+
+.box-in-progress {
+    background: var(--lemonColor);
+}
+
+.box-done {
+    background: var(--blueColor);
+}
+
+.box-not-confirmed {
+    background: var(--redColor);
+}
+
+.fa-minus {
+    color: var(--whiteColor);
+    background: var(--blueColor);
+    font-size: 1em;
+    padding: .25rem;
+    border-radius: .25rem;
+    margin-left: 1rem;
+}
+
+.product-result {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 2rem;
+    background: var(--lightGreyColor);
+    border-radius:.25rem;
+}
+
+.product-title {
+    font-size: 1.25em;
+    padding-bottom: 2rem;
+}
+
+.product-details {
+    margin-bottom: 1rem;
 }

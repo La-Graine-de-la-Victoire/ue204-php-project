@@ -47,3 +47,22 @@ function getProductsList() {
       ]
    });
 }
+
+function ordersList(uri = '') {
+   const finalURI = '?getList=1'+uri;
+   new DataTable('#__ordersList', {
+      ajax: {
+         'url': '/controllers/admin/AdminOrdersController.php'+finalURI,
+         'dataSrc': ''
+      },
+      'columns': [
+         {'data': 'id',},
+         {'data': 'quantity',},
+         {'data': 'client',},
+         {'data': 'closeDate',},
+         {'data':'totalPrice',},
+         {'data':'status',},
+         {'data': 'action',},
+      ]
+   });
+}

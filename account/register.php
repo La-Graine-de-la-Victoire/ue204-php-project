@@ -14,7 +14,6 @@ if(isset($_POST['forminscription'])) {
     $password_confirm = sha1($_POST['password_confirm']);
 
 if(!empty($_POST)){
-    var_dump($_POST);
 
     $errors = array();
     require_once '../utils/dabaseDriver.php';
