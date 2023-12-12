@@ -36,6 +36,11 @@ tr {
     font-family: Arial, sans-serif;
 }
 
+h3 {
+    font-family: Futura, sans-serif;
+    text-decoration: underline;
+}
+
 a {
     text-decoration: none;
     transition: color .25s ease-in-out;
@@ -178,6 +183,10 @@ a:hover {
     justify-content: center;
 }
 
+.justify-right {
+    justify-content: end;
+}
+
 .ai-center {
     align-items: center;
     justify-items: center;
@@ -189,8 +198,16 @@ a:hover {
     width: 100%;
 }
 
+.mtop-2 {
+    margin-top: 2rem;
+}
+
 .mtop-5 {
     margin-top: 5rem;
+}
+
+.mbottom-5 {
+    margin-bottom: 5rem;
 }
 
 .admin-body {
@@ -341,6 +358,12 @@ a:hover {
     margin: 0 1rem;
 }
 
+.important-rank {
+    font-weight: bold;
+    color: var(--blueColor);
+    font-family: Futura, sans-serif;
+}
+
 /******
 * TABLE
  */
@@ -390,14 +413,15 @@ td {
     align-items: center;
     padding: 1rem 2rem;
     border-radius: .5rem;
+    background: transparent;
     border: 2px solid var(--blueColor);
     color: var(--blueColor);
     transition: background.25s ease, color.25s ease;
 }
 
-
 .button:hover {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .button-alert {
@@ -411,3 +435,87 @@ td {
     background: var(--redColor);
 }
 
+.button-default {
+    --currentColor: var(--blueColor);
+    border-color: var(--blueColor);
+    color: var(--blueColor);
+}
+
+.button-default:hover {
+    color: var(--whiteColor);
+    background: var(--blueColor);
+}
+
+.box-info {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.box-master-info {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--darkColor);
+}
+
+.box-info-title {
+    padding-bottom: 1rem;
+}
+
+.box-info-content .row {
+    padding: .5rem 0;
+}
+
+.form-title-box {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.form-block {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form-block label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+    transition: left .25s ease-in-out, top .25s ease-in-out, font-size .25s ease-in-out;
+}
+
+ .form-block input:focus + label,
+ .form-block textarea:focus + label,
+ .form-block input:not(:placeholder-shown) + label,
+ .form-block textarea:not(:placeholder-shown) + label,
+ .form-block textarea:focus + label{
+    font-size: .75em;
+     top: 0;
+    left: 0;
+ }
+
+.form-block input[type="email"],
+.form-block input[type="text"],
+.form-block input[type="number"],
+.form-block textarea {
+    position: relative;
+    border: 0;
+    border-bottom: 4px solid var(--darkColor);
+    margin-bottom: 2rem;
+    padding: 1rem;
+    outline: none;
+    transition: border-color .25s ease-in-out;
+}
+
+.form-block textarea {
+    border-left: 2px solid var(--darkColor);
+}
+
+.form-block input:focus,
+.form-block textarea:focus{
+    border-color: var(--blueColor);
+}

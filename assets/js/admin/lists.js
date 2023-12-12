@@ -13,6 +13,7 @@ function usersList() {
       ]
    });
 }
+
 function getUserOrders() {
    new DataTable('#__ordersList', {
       ajax: {
@@ -26,6 +27,23 @@ function getUserOrders() {
          {'data': 'closeDate',},
          {'data': 'status',},
          {'data': 'action',},
+      ]
+   });
+}
+
+function getProductsList() {
+   new DataTable('#__productsList', {
+      ajax: {
+         'url': '/controllers/admin/AdminProductsController.php?getList=1',
+         'dataSrc': ''
+      },
+      'columns': [
+         {'data': 'id',},
+         {'data': 'name',},
+         {'data': 'editor',},
+         {'data': 'price',},
+         {'data': 'quantity',},
+         {'data': 'actions',},
       ]
    });
 }

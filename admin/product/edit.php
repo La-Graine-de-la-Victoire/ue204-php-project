@@ -3,14 +3,46 @@ require_once '../../utils/security/AdminSecurity.php';
 notAdminRedirection();
 
 require_once '../../utils/security/HtmlMessage.php';
+require_once '../../controllers/admin/AdminProductsController.php';
+$productsController = new AdminProductsController();
+
 include "../../elements/adminTop.php";
 ?>
 
 <div class="admin-body">
 
     <?php
-        if (array_key_exists('status', $_GET) && array_key_exists('message', $_GET)) {
-            HtmlMessage::parseGetMessage();
+        if (!array_key_exists('id', $_GET) || empty($_GET['id'])) {
+            HtmlMessage::errorMessage('Aucun produit sélectionné !', '/admin/product/list.php');
+            return;
+        }
+
+        $id = htmlspecialchars($_GET['id']);
+        $currentProduct = $productsController->getProductByID($id);
+
+        if (!$currentProduct) {
+            HtmlMessage::errorMessage('Le produit choisi est introuvable !', '/admin/product/list.php');
+            return;
+        }
+
+        if (array_key_exists('delete', $_GET) && array_key_exists('confirm', $_GET)) {
+
+            if ($_GET['delete'] == 1 && $_GET['confirm'] == 1) {
+                if ($productsController->delete($id)) {
+                    HtmlMessage::successMessage('Le produit a bien été supprimé !', '/admin/product/list.php');
+                } else {
+                    HtmlMessage::errorMessage('Une erreur est survenue lors de la suppression du produit !', '/admin/product/list.php');
+                }
+                return;
+            } else {
+                HtmlMessage::warningMessage(
+                    'Voulez-vous supprimer le produit "'.$currentProduct['name'].'" ?',
+                    '/admin/product/list.php',
+                    '/admin/product/edit.php?id='.$currentProduct['id'].'&delete=1&confirm=1'
+                );
+                return;
+            }
+
         }
     ?>
 
@@ -22,17 +54,19 @@ include "../../elements/adminTop.php";
                         <h2>Généralités</h2>
                     </div>
                     <div class="form-block">
-                        <input type="text" name="__productName" id="__productName" placeholder>
+                        <input type="text" name="__productName" id="__productName" value="<?php echo $currentProduct['name'] ?>" placeholder>
                         <label for="__productName">Nom du produit</label>
                     </div>
 
                     <div class="form-block">
-                        <input type="text" name="__productEditor" id="__productEditor" placeholder>
+                        <input type="text" name="__productEditor" id="__productEditor" placeholder value="<?php echo $currentProduct['editor'] ?>">
                         <label for="__productEditor">Producteur / Éditeur du produit</label>
                     </div>
 
                     <div class="form-block">
-                        <textarea name="__productDescription" id="__productDescription" cols="75" rows="10" placeholder></textarea>
+                        <textarea name="__productDescription" id="__productDescription" cols="75" rows="10" placeholder>
+                             <?php echo $currentProduct['name'] ?>
+                        </textarea>
                         <label for="__productDescription">Description du produit</label>
                         <span id="__descriptionLimits">255</span>
                     </div>
@@ -61,7 +95,9 @@ include "../../elements/adminTop.php";
             </form>
         </div>
     </div>
+
 </div>
 
 <?php
+
 include "../../elements/adminFooter.php";

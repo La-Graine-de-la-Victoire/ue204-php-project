@@ -2,11 +2,6 @@
 require_once '../../utils/security/AdminSecurity.php';
 notAdminRedirection();
 
-require_once '../../utils/dbUtilities.php';
-require_once '../../controllers/admin/AdminUsersController.php';
-$counter = new dbUtilities();
-$adminController = new AdminUsersController();
-
 include "../../elements/adminTop.php";
 ?>
 

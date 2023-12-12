@@ -68,7 +68,7 @@ include "../../elements/adminTop.php";
                 <h2><?php echo $currentUser['firstName'] ?> <span class="uppercase"><?php echo $currentUser['lastName'] ?></span></h2>
             </div>
             <div class="column">
-                <div class="row">
+                <div class="row jc-sa box-master-info">
                     <div class="box-info">
                         <div class="box-info-title">
                             <h3>Informations importantes</h3>
@@ -76,13 +76,23 @@ include "../../elements/adminTop.php";
                         <div class="box-info-content">
                             <div class="column interval-box-lines">
                                 <div class="row">
-                                    <p><strong class="important-text">Identité : </strong> <span class="response-text"><?php echo $currentUser['firstName'].$currentUser['lastName'] ?></span></p>
+                                    <p><strong class="important-text">Identité : </strong> <span class="response-text"><?php echo $currentUser['firstName'].' '.$currentUser['lastName'] ?></span></p>
                                 </div>
                                 <div class="row">
                                     <p><strong class="important-text">Adresse e-mail : </strong> <span class="response-text"><?php echo $currentUser['email'] ?></span></p>
                                 </div>
                                 <div class="row">
-                                    <p><strong class="important-text">Adresse e-mail : </strong> <span class="response-text"><?php echo $currentUser['email'] ?></span></p>
+                                    <p>
+                                        <strong class="important-text">Rôle : </strong>
+                                        <span class="response-text <?php echo $currentUser['role'] == 'admin' ? 'important-rank' : ''; ?>">
+                                            <?php echo match ($currentUser['role']) {
+                                                'admin' => 'Administrateur',
+                                                'user' => 'Utilisateur',
+                                                default => 'Inconnu'
+                                            }
+                                            ?>
+                                        </span>
+                                    </p>
                                 </div>
                             </div>
                         </div>

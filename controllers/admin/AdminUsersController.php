@@ -91,6 +91,4 @@ if (isset($_GET) && isAdmin()) {
             echo json_encode($controller->getUsersList());
         }
     }
-} else {
-    echo json_encode([]);
 }
