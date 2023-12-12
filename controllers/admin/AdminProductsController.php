@@ -50,13 +50,20 @@ class AdminProductsController
         return $query->rowCount() == 0;
     }
 
-    private function __addRedirect($status, $message) {
-        $url = '/admin/product/add.php?link='.urlencode('/admin/product/list.php');
+    private function __editRedirect($status, $message, $editMode, $productID = ''): void
+    {
+        $path = 'add.php?';
+        if ($editMode) {
+            $path = 'edit.php?id='.$productID.'&';
+        }
+        $url = '/admin/product/'.$path.'link='.urlencode('/admin/product/list.php');
 
         header('Location: '.$url.'&status='.$status.'&message='.urlencode($message));
     }
 
-    public function add(array $request): void {
+    public function edit(array $request): void {
+        $updateMode = array_key_exists('update', $_GET);
+
         if (!empty($request['__productName']) &&
             !empty($request['__productEditor']) &&
             !empty($request['__productDescription']) &&
@@ -68,7 +75,7 @@ class AdminProductsController
                 !is_int((int)$request['__productMinAge']) || !is_int((int)$request['__productStock']) ||
                 !is_double((double)$request['__productPrice'])) {
                 // At the end encode the result of all conditions
-                $this->__addRedirect(400, 'Le format de certaines données n\'est pas valide !');
+                $this->__editRedirect(400, 'Le format de certaines données n\'est pas valide !');
             }
 
             $productName = htmlspecialchars($request['__productName']);
@@ -79,31 +86,48 @@ class AdminProductsController
             $productStock = htmlspecialchars($request['__productStock']);
 
             if (strlen($productDescription) > 255) {
-                $this->__addRedirect(400, 'La description du produit est trop longue !');
+                $this->__editRedirect(400, 'La description du produit est trop longue !');
             }
 
             $dflSells = 0;
 
-            $query = $this->db->prepare("INSERT INTO productsMeta (price, quantity, sells) VALUES (:price, :quantity, :sells)");
+            if ($updateMode) {
+                $metaSqlRequest = "UPDATE productsMeta SET price = :price, quantity = :quantity WHERE id = :id";
+                $productSqlRequest = "UPDATE products SET name = :name, editor = :editor, description = :description, recommendedAge = :recommendedAge WHERE id = :id";
+            } else {
+                $metaSqlRequest = "INSERT INTO productsMeta (price, quantity, sells) VALUES (:price, :quantity, :sells)";
+                $productSqlRequest = "INSERT INTO products (id, name, editor, description, recommendedAge) VALUES (:id, :name, :editor, :description, :recommendedAge)";
+            }
+
+            $query = $this->db->prepare($metaSqlRequest);
             $query->bindParam(':price', $productPrice);
             $query->bindParam(':quantity', $productStock);
-            $query->bindParam(':sells', $dflSells);
+            if (!$updateMode) {
+                $query->bindParam(':sells', $dflSells);
+            } else {
+                $query->bindParam(':id', $request['__productID']);
+            }
             $query->execute();
 
-            $lastInsertId = $this->db->lastInsertId();
+            if (!$updateMode) {
+                $id = $this->db->lastInsertId();
+            } else {
+                $id = $request['__productID'];
+            }
 
-            $query = $this->db->prepare("INSERT INTO products (id, name, editor, description, recommendedAge) VALUES (:id, :name, :editor, :description, :recommendedAge)");
-            $query->bindParam(':id', $lastInsertId);
+            $query = $this->db->prepare($productSqlRequest);
+            $query->bindParam(':id', $id);
             $query->bindParam(':name', $productName);
             $query->bindParam(':editor', $productEditor);
             $query->bindParam(':description', $productDescription);
             $query->bindParam(':recommendedAge', $productMinAge);
             $query->execute();
 
-            $this->__addRedirect(200, 'Le produit a bien été ajouté !');
+            $this->__editRedirect(200,
+            $updateMode? 'Le produit a bien été modifié !' : 'Le produit a bien été ajouté !', $updateMode, $id);
 
         } else {
-            $this->__addRedirect(400, 'Tous les champs ne sont pas remplis !');
+            $this->__editRedirect(400, 'Tous les champs ne sont pas remplis !', $updateMode);
         }
     }
 
@@ -141,7 +165,10 @@ if (isset($_GET) && isAdmin()) {
         } else {
             echo json_encode($controller->getProductsList());
         }
-    } else if (array_key_exists('add', $_GET) && $_GET['add'] == '1' && isset($_POST)) {
-        $controller->add($_POST);
+    } else if (isset($_POST)) {
+        if ((array_key_exists('add', $_GET) && $_GET['add'] == '1') ||
+            (array_key_exists('update', $_GET) && $_GET['update'])) {
+            $controller->edit($_POST);
+        }
     }
 }

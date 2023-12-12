@@ -12,7 +12,12 @@ include "../../elements/adminTop.php";
 <div class="admin-body">
 
     <?php
-        if (!array_key_exists('id', $_GET) || empty($_GET['id'])) {
+
+    if (array_key_exists('status', $_GET) && array_key_exists('message', $_GET)) {
+        HtmlMessage::parseGetMessage();
+    }
+
+    if (!array_key_exists('id', $_GET) || empty($_GET['id'])) {
             HtmlMessage::errorMessage('Aucun produit sélectionné !', '/admin/product/list.php');
             return;
         }
@@ -48,7 +53,7 @@ include "../../elements/adminTop.php";
 
     <div class="column">
         <div class="form row justify-center">
-            <form action="/controllers/admin/AdminProductsController.php?add=1" class="form-box" method="post">
+            <form action="/controllers/admin/AdminProductsController.php?update=1" class="form-box" method="post">
                 <div class="column">
                     <div class="row form-title-box">
                         <h2>Généralités</h2>
@@ -64,15 +69,13 @@ include "../../elements/adminTop.php";
                     </div>
 
                     <div class="form-block">
-                        <textarea name="__productDescription" id="__productDescription" cols="75" rows="10" placeholder>
-                             <?php echo $currentProduct['name'] ?>
-                        </textarea>
+                        <textarea name="__productDescription" id="__productDescription" cols="75" rows="10" placeholder><?php echo $currentProduct['name'] ?></textarea>
                         <label for="__productDescription">Description du produit</label>
                         <span id="__descriptionLimits">255</span>
                     </div>
 
                     <div class="form-block">
-                        <input type="number" name="__productMinAge" id="__productMinAge" placeholder>
+                        <input type="number" name="__productMinAge" id="__productMinAge" placeholder value="<?php echo $currentProduct['recommendedAge'] ?>">
                         <label for="__productMinAge">Âge minimal</label>
                     </div>
                 </div>
@@ -81,12 +84,15 @@ include "../../elements/adminTop.php";
                         <h2>Informations commerciales</h2>
                     </div>
                     <div class="form-block">
-                        <input type="number" name="__productPrice" id="__productPrice" placeholder>
-                        <label for="__productPrice">Prix de vente</label>
+                        <input type="number" name="__productPrice" id="__productPrice" placeholder value="<?php echo $currentProduct['price'] ?>">
+                        <label for="__productPrice">Prix de vente (€)</label>
                     </div>
                     <div class="form-block">
-                        <input type="number" name="__productStock" id="__productStock" placeholder>
+                        <input type="number" name="__productStock" id="__productStock" placeholder value="<?php echo $currentProduct['quantity'] ?>">
                         <label for="__productStock">Quantité en stock</label>
+                    </div>
+                    <div class="form-block">
+                        <input type="hidden" name="__productID" id="__productID" style="display: none" value="<?php echo $currentProduct['id'] ?>">
                     </div>
                 </div>
                 <div class="row mtop-2 justify-center">

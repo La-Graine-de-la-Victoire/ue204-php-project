@@ -519,3 +519,8 @@ td {
 .form-block textarea:focus{
     border-color: var(--blueColor);
 }
+
+.form h2 {
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+}

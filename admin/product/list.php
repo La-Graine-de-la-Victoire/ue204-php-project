@@ -17,7 +17,7 @@ include "../../elements/adminTop.php";
                     <th>Numéro d'identification</th>
                     <th>Nom</th>
                     <th>Editeur</th>
-                    <th>Prix</th>
+                    <th>Prix (€)</th>
                     <th>Quantité en stock</th>
                     <th>Actions</th>
                 </tr>

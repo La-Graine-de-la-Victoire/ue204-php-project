@@ -48,7 +48,7 @@ include "../../elements/adminTop.php";
                     </div>
                     <div class="form-block">
                         <input type="number" name="__productPrice" id="__productPrice" placeholder>
-                        <label for="__productPrice">Prix de vente</label>
+                        <label for="__productPrice">Prix de vente (€)</label>
                     </div>
                     <div class="form-block">
                         <input type="number" name="__productStock" id="__productStock" placeholder>
