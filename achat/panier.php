@@ -2,7 +2,7 @@
     session_start();
 
     // Vérifier si l'utilisateur est connecté
-    if(isset($_SESSION['auth']) && $_SESSION['auth'] == $user) {
+    if(isset($_SESSION['auth'])) {
         echo '<h1>Votre panier</h1>';
         // Afficher les produits dans le panier, cela dépend de la façon dont vous stockez les produits dans la session
         // Vous pourriez avoir un tableau $_SESSION['panier'] contenant les détails des produits ajoutés
