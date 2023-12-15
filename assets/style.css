@@ -103,6 +103,89 @@ header {
     background-color:  #DE2309;
 }
 
+
+.menu-burger {
+    width: 35px; 
+    height: auto;
+}
+
+.menu-toggle {
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+
+/* Ajout de styles pour le menu mobile */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1500;
+}
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.mobile-menu a {
+    font-size: 50px;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 40px;
+    font-family: 'Irish Grover';
+}
+
+.mobile-menu a:hover {
+    color: #DE2309;
+}
+
+/* Styles pour le bouton de fermeture du menu */
+.menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Ajoutez ceci à votre fichier CSS existant */
+
+.header-container.change {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.menu-toggle.change .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-toggle.change .bar2 {
+    opacity: 0;
+}
+
+.menu-toggle.change .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.menu-toggle.change .bar1, .menu-toggle.change .bar3 {
+    background-color: #106C5C;
+}
+
+.menu-overlay.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 /* Stylisation de la section de diaporama */
 .slideshow {
     position: relative;
@@ -175,11 +258,72 @@ header {
     animation-delay: 10s; 
 }
 
+/*Section catégories*/
+
+.pair-section {
+    display: flex;
+    background-color: white;
+    position: relative; /* Pour positionner le texte par rapport à la section */
+    max-width: 1500px;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.left-side,
+.right-side {
+    flex: 1;
+    position: relative; /* Pour positionner l'image par rapport à son conteneur */
+    margin: 0 10px;
+}
+
+.left-side img,
+.right-side img {
+    width: 85%;
+    display: block;
+    margin: 0 50px; /* Marge de 20px à gauche et à droite */
+}
+
+.text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    max-width: 80%;
+}
+
+.image-fond {
+    color: #DE2309;
+    font-family: 'Irish Grover', sans-serif;
+    font-size: 35px;
+}
+
+p {
+    font-size: 17px;
+}
+
+.yellow-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: #106C5C;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.yellow-button:hover {
+    background-color: #FFB100;
+}
+
 /* Section produits */
 
 .jouets-new {
     max-width: 1200px;
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 .jouets-new h2 {

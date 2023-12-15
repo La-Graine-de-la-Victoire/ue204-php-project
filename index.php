@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -19,9 +19,11 @@
 <body>
 <header>
     <div class="header-container">
-        <div class="logo">
-            <img src="./assets/medias/logo-jouetopia.png" alt="Logo JoueTopia">
-        </div>
+        <a href="index.php">
+            <div class="logo">
+                <img src="./assets/medias/logo-jouetopia.png" alt="Logo JoueTopia">
+            </div>
+        </a>
         <div class="search-bar">
             <input type="text" placeholder="Rechercher" class="rounded-input">
             <button type="submit" class="button-search">
@@ -40,9 +42,30 @@
             <a href="/account/orders.php">
                 <img src="./assets/medias/panier.png" alt="Panier">
             </a>
+            <?php
+                if(isset($_SESSION['cart'])) {
+                    $numberOfItemsInCart = count($_SESSION['cart']);
+                    echo "<span>$numberOfItemsInCart</span>"; // Affichez cela à côté de votre icône de panier
+                }
+            ?>
+ 
         </div>
+        <div class="menu-toggle">
+            <img class="menu-burger" src="./assets/medias/menu.png" alt="Menu">
+        </div>
+
+        <div class="menu-overlay">
+            <nav class="mobile-menu">
+                <a href="index.php">Accueil</a>
+                <a href="#">Boutique</a>
+            </nav>
+        </div>
+
     </div>
 </header>
+    
+
+<script src="./assets/js/script.js"></script>
 
 <section class="slideshow">
     <div class="slideshow-container">
@@ -70,6 +93,26 @@
     </div>
 </section>
 
+
+<section class="pair-section">
+    <div class="left-side">
+        <img src="./assets/medias/F2.png" alt="Promotions">
+        <div class="text-container">
+            <h2 class="image-fond">Promotions</h2>
+            <p>Pour Noël, rien de mieux qu'un catalogue complet en promotions ! Profitez dès maintenant de jusqu'à 60% de promotions.</p>
+            <a href="#" class="yellow-button">Découvrez les offres</a>
+        </div>
+    </div>
+    <div class="right-side">
+        <img src="./assets/medias/F1.png" alt="Nouveautés">
+        <div class="text-container">
+            <h2 class="image-fond">Nouveautés</h2>
+            <p>Plus de 100 nouveaux articles chaque mois. N'hésitez pas à consulter le catalogue des nouveautés.</p>
+            <a href="#" class="yellow-button">Découvrez les arrivages</a>
+        </div>
+    </div>
+</section>
+
 <section class="jouets-new">
     <h2>Nos dernières nouveautés </h2>
     <div class="articles-container">
@@ -84,7 +127,7 @@
             </div>
             <p class="description-product">UNO - Jeu de société, Jeu de cartes pour enfants et adultes</p>
             <p class="price">7.90 €</p>
-            <button>Acheter</button>
+            <button onclick="addToCart('id_produit_uno')">Acheter</button>
         </div>
 
         <div class="article">
