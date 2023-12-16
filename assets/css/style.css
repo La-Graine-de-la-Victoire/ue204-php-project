@@ -349,6 +349,11 @@ header {
     transition: transform 1s ease;
 }
 
+.slideshow-container p {
+    font-family: "Avenir Next", sans-serif;
+    margin-top: 3rem;
+}
+
 .slide {
     width: 100vw;
     height: 100vh;
@@ -450,6 +455,8 @@ header {
 
 .article .description-product {
     font-size: 15px;
+    font-family: "Avenir Next", sans-serif;
+    margin-bottom: .5rem;
 }
 
 .article button:hover {
@@ -472,11 +479,10 @@ header {
     background-color: #106C5C;
     color: #fff;
     padding: 50px 0;
-    height: 170px;
 }
 
-.container {
-    max-width: 1200px;
+.footer-container {
+    padding: 1rem 10rem;
     margin: 0 auto;
 }
 
@@ -484,6 +490,11 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+footer a,
+footer p {
+    font-family: "Avenir Next", sans-serif;
 }
 
 .about p {
@@ -499,6 +510,8 @@ header {
 }
 
 .footer-section ul {
+    display: flex;
+    flex-direction: column;
     list-style: none;
     padding: 0;
 }
@@ -512,13 +525,16 @@ header {
     text-decoration: none;
 }
 
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
 .footer-bottom {
     text-align: center;
-    padding-top: 10px;
+    padding: 10px;
     background-color: #222;
     color: #ccc;
     font-size: 14px;
-    height: 30px;
 }
 
 .body-title {

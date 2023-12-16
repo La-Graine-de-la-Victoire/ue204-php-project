@@ -1,6 +1,6 @@
 </div>
 <footer class="site-footer">
-    <div class="container">
+    <div class="footer-container">
         <div class="footer-content">
             <div class="footer-section about">
                 <h2>A propos de JoueTopia</h2>
@@ -25,10 +25,10 @@
             </div>
         </div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2023 JoueTopia - Tous droits réservés</p>
-    </div>
 </footer>
+<div class="footer-bottom">
+    <p>&copy; 2023 JoueTopia - Tous droits réservés</p>
+</div>
 
 </body>
 </html>
