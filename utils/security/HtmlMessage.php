@@ -64,6 +64,10 @@ class HtmlMessage {
             $deleteRef = '';
         }
 
+        $showedLink = '<a href="'.$link.'" class="button button-std">Retour</a>';
+        if (empty($link)) {
+            $showedLink = '';
+        }
         echo '<div class="row justify-center mbottom-5">
                 <div class="admin-alert admin-alert-'.$style.'">
                     <div class="admin-alert-title">
@@ -74,7 +78,7 @@ class HtmlMessage {
                     </div>
                     <div class="admin-alert-footer">
                         '.$deleteRef.'
-                        <a href="'.$link.'" class="button button-std">Retour</a>
+                        '.$showedLink.'
                     </div>
                 </div>
             </div>';

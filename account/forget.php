@@ -1,19 +1,23 @@
 <?php
+session_start();
 
 if(!empty($_POST) && !empty($_POST['email'])){
     require_once '../utils/dabaseDriver.php';
     require_once '../utils/functions.php';
-    $req = $pdo->prepare('SELECT * FROM users WHERE email = ? AND confirmedAt IS NOT NULL');
+    $req = $pdo->prepare('SELECT * FROM users WHERE email = ? AND confirmationToken IS NULL');
     $req->execute([$_POST['email']]);
     $user = $req->fetch();
     if($user){
-        session_start();
         $reset_token = str_random(60);
         $pdo->prepare('UPDATE users SET resetToken = ?, resetAt = NOW() WHERE id = ?')->execute([$reset_token, $user->id]);
         $_SESSION['flash']['success'] = 'Les instructions du rappel de mot de passe vous ont été envoyées par emails';
-        mail($_POST['email'], 'Réinitiatilisation de votre mot de passe', "Afin de réinitialiser votre mot de passe merci de cliquer sur ce lien\n\nhttp://localhost/UE_L204/code/admin/reset.php?id={$user->id}&token=$reset_token");
-        header('Location: login.php');
-        exit();
+        try {
+            var_dump($_POST['email']);
+            var_dump(mail(htmlspecialchars($_POST['email']), 'Réinitiatilisation de votre mot de passe', "Afin de réinitialiser votre mot de passe merci de cliquer sur ce lien\n\nhttp://localhos:8899/account/reset.php?id={$user->id}&token=$reset_token"));
+        } catch (Exception $e) {
+            $_SESSION['flash']['danger'] = 'Impossible d\'envoyer les instructions';
+        }
+//        header('Location: login.php');
     }else{
         $_SESSION['flash']['danger'] = 'Aucun compte ne correspond à cet adresse';
     }
@@ -23,48 +27,41 @@ if(!empty($_POST) && !empty($_POST['email'])){
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-<nav>
+<?php include '../elements/head.php';?>
+<?php include '../elements/header.php';?>
+    <nav class="forget-box">
         <?php if(isset($_SESSION['auth'])): ?>
-            <a href="/account/logout.php">Deconnexion</a>
-            <?php else: ?>
-        <a href="/account/register.php">Inscription</a>
-        <a href="/account/login.php">Connexion</a>
+
+        <?php else: ?>
+            <a href="/account/register.php">Inscription</a>
+            <a href="/account/login.php">Connexion</a>
         <?php endif; ?>
     </nav>
 
-   <!--Lorsque l'on réappuis sur le lien de confirmation recu par mail on a un message nous disant que le token n'est plus valide.-->
+    <!--Lorsque l'on réappuis sur le lien de confirmation recu par mail on a un message nous disant que le token n'est plus valide.-->
 
-    <?php if(isset($_SESSION['flash'])): ?>
+    <div class="container_forget">
+        <?php if(isset($_SESSION['flash'])): ?>
 
-    <?php foreach($_SESSION['flash'] as $type => $message): ?>
-    <div class="alert alert-<?= $type; ?>">
-        <?= $message; ?>
-            </div>
+            <?php foreach($_SESSION['flash'] as $type => $message): ?>
+                <div class="alert alert-<?= $type; ?>">
+                    <?= $message; ?>
+                </div>
             <?php endforeach; ?>
             <?php unset($_SESSION['flash']); ?>
-            <?php endif; ?>
+        <?php endif; ?>
 
+        <form action="#" method="POST" class="form_forget">
+            <h1 class="forget-title">Mot de passe oublié</h1>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" />
+            </div>
 
-    <h1>Mot de passe oublié</h1>
+            <div class="form-group">
+                <button type="submit" class="forget-submit">Envoyer un mail</button>
+            </div>
 
-<form action="" method="POST">
-
-<div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" />
-</div>
-
-<button type="submit">Se connecter</button>
-
-</form>
-</body>
-</html>
+        </form>
+    </div>
+<?php include '../elements/footer.php';?>

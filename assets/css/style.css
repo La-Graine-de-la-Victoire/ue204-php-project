@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+h1,
+h2 {
+    font-family: "Irish Grover", sans-serif;
+}
+
 /*formulaire de connexion*/
 
 .body_connexion{
@@ -18,7 +23,6 @@
 #container_connexion{
     width:400px;
     margin:0 auto;
-    margin-top:10%;
 }
 /* Bordered form */
 .formulaire_connexion {
@@ -27,6 +31,7 @@
     border: 1px solid #f1f1f1;
     background: #fff;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin-top: 1rem;
 }
 .titre_connexion{
     width: 38%;
@@ -123,7 +128,6 @@ textarea {
 }
 
 .corps_inscription {
-    background-image: url("../images/contact.jpg");
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,9 +138,8 @@ textarea {
 
 .form_inscription {
     background-color: rgba(0, 0, 0, 0.5);
-    margin: auto;
     height: 1200px;
-
+    margin: 1rem auto;
 }
 
 
@@ -163,8 +166,7 @@ textarea {
     width: 500px;
 }
 
-.form_inscription p,
-a {
+.form_inscription p {
     font-size: 10px;
     color: white;
 }
@@ -249,7 +251,6 @@ li:hover > ul {
 header {
     padding: 20px 0;
     background-color: white;
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -285,29 +286,27 @@ header {
     border: 1px solid #ccc;
     outline: none;
     background-color: #F4F4F4;
-    width: 500px;
-    height: 15px;
 }
 
 .rounded-input {
     box-shadow: 0 1px 10px #106c5d8a;
 }
 
+.header-form {
+    display: flex;
+    align-items: center;
+}
 
 /* Ajustement du bouton "Rechercher" */
+
 .search-bar button {
-    padding: 5px 10px;
+    padding: .5rem 1rem;
     border-radius: 0 50px 50px 0;
     border: none;
     background-color: #DE2309;
     cursor: pointer;
     outline: none;
     box-shadow: 0 1px 10px #106c5d8a;
-    height: 42px;
-}
-
-.search-bar :hover {
-    background-color: #106C5C;
 }
 
 /* Styles pour le bouton "Rechercher" */
@@ -348,6 +347,11 @@ header {
     display: flex;
     width: 300%;
     transition: transform 1s ease;
+}
+
+.slideshow-container p {
+    font-family: "Avenir Next", sans-serif;
+    margin-top: 3rem;
 }
 
 .slide {
@@ -411,7 +415,7 @@ header {
 
 .jouets-new {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 4rem auto;
 }
 
 .jouets-new h2 {
@@ -451,6 +455,8 @@ header {
 
 .article .description-product {
     font-size: 15px;
+    font-family: "Avenir Next", sans-serif;
+    margin-bottom: .5rem;
 }
 
 .article button:hover {
@@ -473,11 +479,10 @@ header {
     background-color: #106C5C;
     color: #fff;
     padding: 50px 0;
-    height: 170px;
 }
 
-.container {
-    max-width: 1200px;
+.footer-container {
+    padding: 1rem 10rem;
     margin: 0 auto;
 }
 
@@ -487,13 +492,17 @@ header {
     justify-content: space-between;
 }
 
+footer a,
+footer p {
+    font-family: "Avenir Next", sans-serif;
+}
+
 .about p {
     width: 80%;
 }
 
 .footer-section {
     flex: 1;
-    margin-bottom: 20px;
 }
 
 .footer-section h2 {
@@ -501,6 +510,8 @@ header {
 }
 
 .footer-section ul {
+    display: flex;
+    flex-direction: column;
     list-style: none;
     padding: 0;
 }
@@ -514,11 +525,536 @@ header {
     text-decoration: none;
 }
 
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
 .footer-bottom {
     text-align: center;
-    padding-top: 10px;
+    padding: 10px;
     background-color: #222;
     color: #ccc;
     font-size: 14px;
-    height: 30px;
+}
+
+.body-title {
+    color: #106C5C;
+    font-size: 3em;
+    padding: 12rem 10rem 10rem;
+    font-family: "Irish Grover", sans-serif;
+    text-align: center;
+    background: #eeeeee;
+}
+
+.products-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem;
+}
+
+.product-image {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 1rem;
+    background: #eeeeee;
+    padding: 2rem;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    font-family: "Avenir Next", sans-serif;
+}
+
+.product-info h3 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.product-description {
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #106C5C;
+}
+
+.product-info a,
+.button-buy {
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #FFB100;
+    border-radius: 2rem;
+    font-size: 1em;
+    text-decoration: none;
+    transition: background-color .25s ease-in-out;
+    color: #FFFFFF;
+    font-family: "Avenir Next", sans-serif;
+}
+
+.product-info a:hover,
+.button-buy:hover {
+    background: #f6844f;
+}
+
+.product-info a:hover {
+    background: #f6844f;
+    color: #fff;
+}
+
+/** PRODUCTS **/
+
+#products-results {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-product-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.search-product-box-title {
+    display: flex;
+    background-color: #106C5C;
+    width: 100%;
+    padding: .5rem;
+    color: #FFFFFF;
+    font-family: "Irish Grover", sans-serif;
+}
+
+.search-box label {
+    color: #ff253a;
+    font-family: "Irish Grover", sans-serif;
+}
+
+.search-box {
+    margin: 2rem 0;
+}
+
+input,
+select {
+    display: flex;
+    width: 100%;
+    padding:.5rem;
+    margin: .5rem 0;
+    background: #FFFFFF;
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid #222222;
+    transition: background-color .25s ease-in-out;
+}
+
+.search-box input:focus,
+.search-box select :focus {
+    background: #f1f1f1;
+}
+
+.products-container {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.admin-alert {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 4rem;
+    color: #f1f1f1;
+    margin: 1rem;
+    border-radius: .5rem;
+}
+
+.admin-alert-title h2 {
+    font-family: Futura, sans-serif;
+}
+
+.admin-alert-content {
+    display: flex;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.admin-alert-footer {
+    display: flex;
+    padding-top: 1rem;
+    justify-content: center;
+}
+
+.admin-alert-footer a {
+    display: flex;
+    color: #f1f1f1;
+    border-radius: .25rem;
+    transition: background 0.25s ease;
+}
+
+.admin-alert-footer a:hover {
+    background-color: var(--currentColor);
+    text-decoration: none;
+}
+
+.admin-alert-error {
+    background: #D15656;
+}
+
+.admin-alert-warning {
+    background: #FFB100;
+}
+
+.admin-alert-success {
+    background: #56B8D1;
+}
+
+.admin-alert-footer a {
+    margin: 0 1rem;
+}
+
+.express-messages {
+    display: flex;
+    justify-content: center;
+}
+
+.empty-basket {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #eeeeee;
+    color: #106C5C;
+    font-weight: bold;
+    font-size: 1.15rem;
+    font-family: "Avenir Next", sans-serif;
+    margin: 2rem;
+    border-radius: .25rem;
+}
+
+.basket-title {
+    display: flex;
+    background-color: #106C5C;
+    width: 100%;
+    padding:2rem;
+    margin: 2rem 0;
+    color: #fff;
+    font-family: "Avenir Next", sans-serif;
+    font-size: .9em;
+    border-radius: .5rem;
+}
+
+.basket-count-n {
+    font-weight: normal;
+    font-size: 1em;
+}
+
+.basket-products {
+    display: flex;
+}
+
+.basket-product {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 0 1rem;
+    border-radius:.5rem;
+    font-family: "Avenir Next", sans-serif;
+    align-items: center;
+}
+
+.basket-product .product-title {
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    color: #106C5C;
+}
+
+.product-description-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-description-line span {
+    display: flex;
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+    color: #106C5C;
+}
+
+.product-description-line span:last-of-type {
+    color: #222222;
+    font-weight: normal;
+    font-size: .9rem;
+}
+
+.product-price-line {
+    align-items: center;
+}
+
+.product-description-line a {
+    display: flex;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: .25rem 2rem;
+    color: #f1f1f1;
+    border-radius: .5rem;
+    transition: background 0.25s ease;
+    text-decoration: none;
+}
+
+
+.product-description-line a:first-of-type {
+    background-color: #D15656;
+}
+
+.product-description-line a:first-of-type:hover {
+    background-color: #ff253a;
+}
+
+.product-description-line a:last-of-type {
+    background-color: #56B8D1;
+}
+
+.product-description-line a:last-of-type:hover {
+    background-color: #0094B9;
+}
+
+.card-mode {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pay-button {
+    padding: 1rem 3rem;
+    background: #FFB100;
+    border-radius: .25rem;
+    color: #FFFFFF;
+    font-family: "Avenir Next", sans-serif;
+    border: none;
+    outline: none;
+    margin: 0 2rem;
+    transition: background-color.25s ease-in-out;
+    cursor: pointer;
+}
+
+.pay-button:hover {
+    background: #f6844f;
+}
+
+.paypal-form,
+.bank-form {
+    display: none;
+    height: 0;
+    transition: height 1s ease-in-out;
+}
+
+.form-active {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pay-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+}
+
+.pay-form label {
+    font-family: "Avenir Next", sans-serif;
+}
+
+.form-title {
+    font-family: "Irish Grover", sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #f1f1f1;
+    background-color: #106C5C;
+    padding: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+
+.form-confirm-order {
+    margin-bottom: 2rem;
+    border-top: 2px solid #222222;
+    padding-top: 4rem;
+}
+
+.total-price {
+    display: flex;
+    font-family: "Irish Grover", sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #f1f1f1;
+    background-color: #106C5C;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.total-price p {
+    font-weight: normal;
+    margin-left: 2rem;
+}
+
+.form-group-submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.account-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Irish Grover", sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #f1f1f1;
+    background-color: #106C5C;
+    padding: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.account-title a {
+    text-decoration: underline;
+    color: #f1f1f1;
+    transition: color 0.25s ease-in-out;
+}
+
+.account-title a:hover {
+    color: #FFB100;
+}
+
+.account-form {
+    margin-bottom: 2rem;
+}
+
+.account-form .form-group {
+    margin: 2rem 0;
+}
+
+.account-form button,
+.forget-submit{
+    padding: 1rem 2rem;
+    border: none;
+    outline: none;
+    border-radius:.25rem;
+    font-family: "Avenir Next", sans-serif;
+    background-color: #FFB100;
+    cursor: pointer;
+    transition: background-color.25s ease-in-out;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.account-form .form-submit,
+.forget-submit {
+    display: flex;
+    justify-content: center
+}
+
+.account-form button:hover,
+.forget-submit:hover {
+    background-color: #f6844f;
+}
+
+.account-alerts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.alert {
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: .5rem;
+    color: #f1f1f1;
+    font-family: "Avenir Next", sans-serif;
+}
+
+.alert-danger {
+    background: #ff253a;
+}
+
+.alert-success {
+    background: #0094B9;
+}
+
+.container_forget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_forget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.forget-title,
+.forget-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Irish Grover", sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #f1f1f1;
+    background-color: #106C5C;
+    padding: 1rem 4rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.forget-box a {
+    text-decoration: underline;
+    color: #f1f1f1;
+    transition: color 0.25s ease-in-out;
+}
+
+.forget-box a:hover {
+    color: #FFB100;
+}
+
+#__body {
+    min-height: 100vh;
+}
+
+.legal-container {
+    display: flex;
+    margin-top: 2rem;
+    padding: 2rem;
 }

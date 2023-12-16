@@ -2,7 +2,7 @@
 if(isset($_GET['id']) && isset($_GET['token'])){
     require_once '../utils/dabaseDriver.php';
     require_once '../utils/functions.php';
-    $req = $pdo->prepare('SELECT * FROM users WHERE id = ? AND resetToken IS NOT NULL AND resetToken = ? AND reset_at > DATE_SUB(NOW(), INTERVAL 30 MINUTE)');
+    $req = $pdo->prepare('SELECT * FROM users WHERE id = ? AND resetToken IS NOT NULL AND resetToken = ? AND resetAt > DATE_SUB(NOW(), INTERVAL 30 MINUTE)');
     $req->execute([$_GET['id'], $_GET['token']]);
     $user = $req->fetch();
     if($user){
@@ -13,18 +13,18 @@ if(isset($_GET['id']) && isset($_GET['token'])){
                 session_start();
                 $_SESSION['flash']['success'] = 'Votre mot de passe a bien été modifié';
                 $_SESSION['auth'] = $user;
-                header('Location: account.php');
+                header('Location: /');
                 exit();
             }
         }
     }else{
         session_start();
         $_SESSION['flash']['error'] = "Ce token n'est pas valide";
-        header('Location: login.php');
+        header('Location: /');
         exit();
     }
 }else{
-    header('Location: login.php');
+    header('Location: /');
     exit();
 }
 

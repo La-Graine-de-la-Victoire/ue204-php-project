@@ -10,7 +10,7 @@ include "../../elements/adminTop.php";
             <thead>
             <tr>
                 <th>Numéro d'identification</th>
-                <th>Nombre d'articles</th>
+                <th>Nombre de produits différents</th>
                 <th>Client</th>
                 <th>Date d'ouverture</th>
                 <th>Prix total (€)</th>

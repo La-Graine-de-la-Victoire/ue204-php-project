@@ -508,6 +508,45 @@ td {
     left: 0;
  }
 
+.form-block-file {
+    margin-bottom: 4rem;
+}
+
+.form-block-file label {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.file-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-selector input::file-selector-button {
+    background: var(--blueColor);
+    outline: none;
+    border: none;
+    padding: .5rem;
+    font-weight: bold;
+    color: var(--whiteColor);
+    margin-right: 1rem;
+}
+
+.file-selector input {
+    font-size: .75em;
+    background: var(--darkBlueColor);
+    color: var(--whiteColor);
+    border-radius: .25rem;
+}
+
+.file-selector input:hover,
+.file-selector input:focus {
+    background: var(--blueColor);
+    color: var(--whiteColor);
+    cursor: pointer;
+}
+
 .form-block input[type="email"],
 .form-block input[type="text"],
 .form-block input[type="number"],
@@ -578,4 +617,23 @@ td {
 
 .product-details {
     margin-bottom: 1rem;
+}
+
+.pay-response {
+    padding: .5rem 1.5rem;
+    border-radius: 1rem;
+    color: var(--whiteColor);
+}
+
+.pay-response-paypal {
+    background: var(--blueColor);
+}
+
+.pay-response-bank {
+    background: var(--purpleColor);
+}
+
+.pay-response-cash {
+    background: var(--lightGreyColor);
+    color: #222222;
 }

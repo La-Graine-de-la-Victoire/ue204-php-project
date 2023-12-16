@@ -29,6 +29,11 @@ include "../../elements/adminTop.php";
     } else {
         $statusStyle = 'not-confirmed';
     }
+    $quantity = 0;
+    foreach (json_decode($product['products']) as $sell) {
+        $quantity += $sell[1];
+    }
+
     ?>
 
     <div class="column">
@@ -45,7 +50,7 @@ include "../../elements/adminTop.php";
                         <p><strong class="important-text">Numéro de commande : #</strong><span class="response-text"><?php echo $product['id']?></span></p>
                     </div>
                     <div class="row">
-                        <p><strong class="important-text">Nombre d'articles : </strong><span class="response-text"><?php echo count(json_decode($product['products'], true))?></span></p>
+                        <p><strong class="important-text">Nombre d'articles : </strong><span class="response-text"><?php echo $quantity ?></span></p>
                     </div>
                     <div class="row">
                         <p><strong class="important-text">Date d'ouverture du panier : </strong><span class="response-text"><?php echo $product['creationDate']?></span></p>
@@ -62,6 +67,22 @@ include "../../elements/adminTop.php";
                 <div class="box-info-content">
                     <div class="row">
                         <p><strong class="important-text">Adresse de livraison : </strong><span class="response-text"><?php echo $product['address']?></span></p>
+                    </div>
+                </div>
+                <div class="box-info-title mtop-2">
+                    <h2>Informations de paiement</h2>
+                </div>
+                <div class="box-info-content">
+                    <div class="row">
+                        <?php
+                            if ($product['payementMode'] == 1) {
+                                echo '<p><strong class="important-text">Mode de paiement : </strong><span class="pay-response pay-response-paypal">Paypal</span></p>';
+                            } else if ($product['payementMode'] == 2){
+                                echo '<p><strong class="important-text">Mode de paiement : </strong><span class="pay-response pay-response-bank">Carte bancaire</span></p>';
+                            } else {
+                                echo '<p><strong class="important-text">Mode de paiement : </strong><span class="pay-response pay-response-cash">Non payée</span></p>';
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -81,15 +102,21 @@ include "../../elements/adminTop.php";
                     <div class="product-details">
                         <p><strong>Quantité : </strong> <?php echo  $elements[$item][1] ?></p>
                     </div>
-                    <div class="product-details">
-                        <p>
-                            <strong>Quantité manquante: </strong>
-                            <?php echo  $elements[$item][2] ?>
-                            <a href="/controllers/admin/AdminOrdersController.php?mode=update&id=<?php echo $product['id'] ?>&removequantity=<?php echo $elements[$item][0] ?>">
-                                <i class="fa fa-minus"></i>
-                            </a>
-                        </p>
-                    </div>
+                    <?php
+                        if ($product['status'] == 2) {
+                            ?>
+                            <div class="product-details">
+                                <p>
+                                    <strong>Quantité manquante: </strong>
+                                    <?php echo  $elements[$item][2] ?>
+                                    <a href="/controllers/admin/AdminOrdersController.php?mode=update&id=<?php echo $product['id'] ?>&removequantity=<?php echo $elements[$item][0] ?>">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                </p>
+                            </div>
+                            <?php
+                        }
+                    ?>
                 </div>
 
                 <?php

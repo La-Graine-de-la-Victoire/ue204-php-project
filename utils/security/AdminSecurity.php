@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_id() == "") {
+    session_start();
+}
 
 function isAdmin() : bool {
     return isset($_SESSION) && array_key_exists('auth', $_SESSION) && $_SESSION['auth']->role == 'admin';

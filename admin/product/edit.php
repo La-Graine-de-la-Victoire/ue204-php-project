@@ -3,8 +3,8 @@ require_once '../../utils/security/AdminSecurity.php';
 notAdminRedirection();
 
 require_once '../../utils/security/HtmlMessage.php';
-require_once '../../controllers/admin/AdminProductsController.php';
-$productsController = new AdminProductsController();
+require_once '../../controllers/ProductsController.php';
+$productsController = new ProductsController();
 
 include "../../elements/adminTop.php";
 ?>
@@ -53,11 +53,21 @@ include "../../elements/adminTop.php";
 
     <div class="column">
         <div class="form row justify-center">
-            <form action="/controllers/admin/AdminProductsController.php?update=1" class="form-box" method="post">
+            <form action="/controllers/ProductsController.php?update=1" class="form-box" method="post" enctype="multipart/form-data">
                 <div class="column">
                     <div class="row form-title-box">
                         <h2>Généralités</h2>
                     </div>
+
+                    <div class="form-block-file">
+                        <div class="row">
+                            <label for="__productName">Image de présentation</label>
+                        </div>
+                        <div class="file-selector">
+                            <input type="file" name="__productImage" id="__productImage" accept="image/*" placeholder>
+                        </div>
+                    </div>
+
                     <div class="form-block">
                         <input type="text" name="__productName" id="__productName" value="<?php echo $currentProduct['name'] ?>" placeholder>
                         <label for="__productName">Nom du produit</label>
@@ -96,7 +106,7 @@ include "../../elements/adminTop.php";
                     </div>
                 </div>
                 <div class="row mtop-2 justify-center">
-                    <button class="button button-default" id="__add" name="__add" type="submit">Ajouter</button>
+                    <button class="button button-default" id="__add" name="__add" type="submit">Modifier</button>
                 </div>
             </form>
         </div>

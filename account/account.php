@@ -1,5 +1,9 @@
 <?php
+
 session_start();
+if (!array_key_exists('auth', $_SESSION)) {
+    header('Location: /account/login.php');
+}
 require_once '../utils/functions.php';
 logged_only();
 if(!empty($_POST)){
@@ -17,52 +21,49 @@ if(!empty($_POST)){
 }
 ?>
 
+<?php include '../elements/head.php';?>
+<?php include '../elements/header.php';?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<nav>
-        <?php if(isset($_SESSION['auth'])): ?>
-            <a href="/account/logout.php">Deconnexion</a>
-            <?php else: ?>
-        <a href="/account/register.php">Inscription</a>
-        <a href="/account/login.php">Connexion</a>
-        <?php endif; ?>
-    </nav>
-
+<div class="account-alerts">
     <?php if(isset($_SESSION['flash'])): ?>
 
-<?php foreach($_SESSION['flash'] as $type => $message): ?>
-<div class="alert alert-<?= $type; ?>">
-    <?= $message; ?>
-        </div>
+        <?php foreach($_SESSION['flash'] as $type => $message): ?>
+            <div class="alert alert-<?= $type; ?>">
+                <?= $message; ?>
+            </div>
         <?php endforeach; ?>
         <?php unset($_SESSION['flash']); ?>
-        <?php endif; ?>
-
-
-    <h1>Bonjour <?= $_SESSION['auth']->prenom; ?></h1>
-
-    <form action="" method="POST">
-
-<div class="form-group">
-    <label for="password">Changer votre mot de passe</label>
-    <input type="password" name="password" id="password" placeholder="Changer de mot de passe"/>
+    <?php endif; ?>
 </div>
 
-<div class="form-group">
-    <label for="password_confirm">Confirmation du mot de passe</label>
-    <input type="password" name="password_confirm" id="password_confirm" placeholder="Confirmez le mot de passe"/>
+<div class="container">
+
+    <div class="account-title">
+        <div class="space-col">
+            <h1>Bonjour <?= $_SESSION['auth']->firstName; ?></h1>
+        </div>
+        <div class="space-col">
+            <a href="/account/logout.php">Deconnexion</a>
+        </div>
+    </div>
+
+    <form action="" method="POST" class="account-form">
+
+        <div class="form-group">
+            <label for="password">Changer votre mot de passe</label>
+            <input type="password" name="password" id="password" placeholder="Changer de mot de passe"/>
+        </div>
+
+        <div class="form-group">
+            <label for="password_confirm">Confirmation du mot de passe</label>
+            <input type="password" name="password_confirm" id="password_confirm" placeholder="Confirmez le mot de passe"/>
+        </div>
+
+        <div class="form-submit">
+            <button type="submit">Changer mon mot de passe</button>
+        </div>
+
+    </form>
 </div>
 
-<button type="submit">Changer mon mot de passe</button>
-
-</form>
-    
-</body>
-</html>
+<?php include '../elements/footer.php';?>
