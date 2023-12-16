@@ -96,9 +96,17 @@ class AdminOrdersController
                 }
             }
 
-            $item['creationDate'] = date('d/m/Y', strtotime($item['creationDate']));
-            $item['closeDate'] = !empty(date('d/m/Y', strtotime($item['closeDate']))) ?
-                date('d/m/Y', strtotime($item['closeDate'])) : 'Aucune date';
+            $creationDate = new \DateTime($item['creationDate']);
+            $creationDate = $creationDate->format('d/m/Y');
+            if ($item['closeDate']!= null) {
+                $closeDate = new \DateTime($item['creationDate']);
+                $closeDate = $closeDate->format('d/m/Y');
+            } else {
+                $closeDate = 'Aucune date';
+            }
+
+            $item['creationDate'] = $creationDate;
+            $item['closeDate'] = $closeDate;
             $item['statusStr'] = $this->__parseStatus($item['status']);
         }
 

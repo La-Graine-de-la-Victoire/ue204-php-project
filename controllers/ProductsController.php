@@ -1,8 +1,8 @@
 <?php
-require_once '../../utils/dbUtilities.php';
-require_once '../../utils/security/AdminSecurity.php';
+require_once dirname(__DIR__).'/./utils/dbUtilities.php';
+require_once dirname(__DIR__).'/utils/security/AdminSecurity.php';
 
-class AdminProductsController
+class ProductsController
 {
     private $db;
 
@@ -13,11 +13,11 @@ class AdminProductsController
     }
 
     public function getProductsList() {
-        $query = $this->db->prepare("SELECT id, name, editor FROM products");
+        $query = $this->db->prepare("SELECT * FROM products");
         $query->execute();
         $products = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        $query = $this->db->prepare("SELECT id, quantity, price FROM productsMeta");
+        $query = $this->db->prepare("SELECT * FROM productsMeta");
         $query->execute();
         $meta = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -75,7 +75,7 @@ class AdminProductsController
                 !is_int((int)$request['__productMinAge']) || !is_int((int)$request['__productStock']) ||
                 !is_double((double)$request['__productPrice'])) {
                 // At the end encode the result of all conditions
-                $this->__editRedirect(400, 'Le format de certaines données n\'est pas valide !');
+                $this->__editRedirect(400, 'Le format de certaines données n\'est pas valide !', $updateMode);
             }
 
             $productName = htmlspecialchars($request['__productName']);
@@ -86,17 +86,30 @@ class AdminProductsController
             $productStock = htmlspecialchars($request['__productStock']);
 
             if (strlen($productDescription) > 255) {
-                $this->__editRedirect(400, 'La description du produit est trop longue !');
+                $this->__editRedirect(400, 'La description du produit est trop longue !', $updateMode);
+            }
+
+            $image = NULL;
+            if (array_key_exists('__productImage', $_FILES) &&!empty($_FILES['__productImage']) && $_FILES['__productImage']['error'] == UPLOAD_ERR_OK) {
+                $fn = $_FILES['__productImage']['name'];
+                $tmp = $_FILES['__productImage']['tmp_name'];
+
+                $outShort = '/assets/uploads/'.uniqid().'__'.$fn;
+                $out = dirname(__DIR__).$outShort;
+                if (move_uploaded_file($tmp, $out)) {
+                    $image = $outShort;
+                } else {
+                    $this->__editRedirect(400, 'Une erreur est survenue lors du téléchargement de l\'image!');
+                }
             }
 
             $dflSells = 0;
-
             if ($updateMode) {
                 $metaSqlRequest = "UPDATE productsMeta SET price = :price, quantity = :quantity WHERE id = :id";
-                $productSqlRequest = "UPDATE products SET name = :name, editor = :editor, description = :description, recommendedAge = :recommendedAge WHERE id = :id";
+                $productSqlRequest = "UPDATE products SET name = :name, editor = :editor, description = :description, recommendedAge = :recommendedAge, image = :image WHERE id = :id";
             } else {
                 $metaSqlRequest = "INSERT INTO productsMeta (price, quantity, sells) VALUES (:price, :quantity, :sells)";
-                $productSqlRequest = "INSERT INTO products (id, name, editor, description, recommendedAge) VALUES (:id, :name, :editor, :description, :recommendedAge)";
+                $productSqlRequest = "INSERT INTO products (id, name, editor, description, recommendedAge, image) VALUES (:id, :name, :editor, :description, :recommendedAge, :image)";
             }
 
             $query = $this->db->prepare($metaSqlRequest);
@@ -121,6 +134,7 @@ class AdminProductsController
             $query->bindParam(':editor', $productEditor);
             $query->bindParam(':description', $productDescription);
             $query->bindParam(':recommendedAge', $productMinAge);
+            $query->bindParam(':image', $image);
             $query->execute();
 
             $this->__editRedirect(200,
@@ -151,10 +165,54 @@ class AdminProductsController
         return $product;
     }
 
+    public function getLastProducts(): array {
+        $query = $this->db->prepare("SELECT * FROM products ORDER BY id DESC LIMIT 4");
+        $query->execute();
+        $products = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($products) {
+            foreach ($products as $key =>$product) {
+                $query = $this->db->prepare("SELECT * FROM productsMeta WHERE id = :id");
+                $query->bindParam(':id', $product['id']);
+                $query->execute();
+                $meta = $query->fetch(PDO::FETCH_ASSOC);
+
+                $products[$key]['price'] = $meta['price'];
+                $products[$key]['quantity'] = $meta['quantity'];
+                $products[$key]['sells'] = $meta['sells'];
+            }
+        }
+
+        return $products;
+    }
+
+    public function getBestSells(): array {
+        $query = $this->db->prepare("SELECT * FROM productsMeta ORDER BY sells DESC LIMIT 4");
+        $query->execute();
+        $productsMeta = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($productsMeta) {
+            foreach ($productsMeta as $key =>$product) {
+                $query = $this->db->prepare("SELECT * FROM products WHERE id = :id");
+                $query->bindParam(':id', $product['id']);
+                $query->execute();
+                $item = $query->fetch(PDO::FETCH_ASSOC);
+
+                if ($item) {
+                    $productsMeta[$key]['name'] = $item['name'];
+                    $productsMeta[$key]['description'] = $item['description'];
+                    $productsMeta[$key]['image'] = $item['image'];
+                }
+            }
+        }
+
+        return $productsMeta;
+    }
+
 }
 
 if (isset($_GET) && isAdmin()) {
-    $controller = new AdminProductsController();
+    $controller = new ProductsController();
     if (array_key_exists('getList', $_GET)) {
 
         if (array_key_exists('delete', $_GET) &&

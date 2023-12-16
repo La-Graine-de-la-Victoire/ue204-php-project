@@ -1,6 +1,5 @@
 <?php
 require_once 'dabaseDriver.php';
-global $pdo;
 class dbUtilities
 {
     private $__pdo;

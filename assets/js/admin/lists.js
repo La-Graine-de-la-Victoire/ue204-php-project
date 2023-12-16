@@ -34,7 +34,7 @@ function getUserOrders() {
 function getProductsList() {
    new DataTable('#__productsList', {
       ajax: {
-         'url': '/controllers/admin/AdminProductsController.php?getList=1',
+         'url': '/controllers/ProductsController.php?getList=1',
          'dataSrc': ''
       },
       'columns': [
