@@ -12,6 +12,7 @@
                 <ul>
                     <li><a href="/">Accueil</a></li>
                     <li><a href="/products.php">Produits</a></li>
+                    <li><a href="../contact/contact.php">Contact</a></li>
                     <li><a href="/legal/legal.php">Mentions légales</a></li>
                 </ul>
             </div>

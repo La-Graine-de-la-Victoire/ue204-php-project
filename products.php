@@ -86,7 +86,7 @@ if (!array_key_exists('results', $_GET)) {
                             if (array_key_exists('auth', $_SESSION)) {
                                 echo '<a href="/achat/edit.php?mode=0&id='.$product['id'].'">Ajouter au panier</a>';
                             } else {
-                                echo '<a href="/account/login.php">Se connecter</a>';
+                                echo '<a href="/account/login.php">Ajouter au panier</a>';
                             }
                         ?>
                     </div>

@@ -449,13 +449,13 @@ header {
     border-radius: 50px;
     cursor: pointer;
     font-size: 15px;
-    width: 80%;
     box-shadow: 0 1px 10px #106c5d8a;
+    
 }
 
 .article .description-product {
     font-size: 15px;
-    font-family: "Avenir Next", sans-serif;
+    font-family: "Jost", sans-serif;
     margin-bottom: .5rem;
 }
 
@@ -562,16 +562,16 @@ footer p {
 }
 
 .product-image {
-    width: 16rem;
-    height: 16rem;
+    width: 20rem;
+    height: auto;
     border-radius: 1rem;
-    background: #eeeeee;
+    background: #f6f6f6;
     padding: 2rem;
 }
 
 .product-image img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: contain;
     margin-bottom: 1rem;
 }
@@ -579,7 +579,10 @@ footer p {
 .product-info {
     display: flex;
     flex-direction: column;
-    font-family: "Avenir Next", sans-serif;
+    font-family: "Jost", sans-serif;
+    width: 60%;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .product-info h3 {
@@ -611,7 +614,7 @@ footer p {
     text-decoration: none;
     transition: background-color .25s ease-in-out;
     color: #FFFFFF;
-    font-family: "Avenir Next", sans-serif;
+    font-family: "Jost", sans-serif;
 }
 
 .product-info a:hover,
@@ -629,6 +632,8 @@ footer p {
 #products-results {
     display: flex;
     justify-content: space-between;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 .search-product-box {
@@ -636,6 +641,7 @@ footer p {
     flex-direction: column;
     align-items: center;
     padding: 2rem;
+    width: 80%;
 }
 
 .search-product-box-title {
@@ -1058,3 +1064,115 @@ select {
     margin-top: 2rem;
     padding: 2rem;
 }
+
+
+/*Contact*/
+
+.body_contact {
+    background-color: #FFB100;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .background {
+    background-color: #106C5C;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  #containere {
+    max-width: 600px;
+  }
+
+  .screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .screen-body {
+    display: flex;
+    margin-top: 40px;
+  }
+
+  .screen-body-item {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .left {
+    border-right: 1px solid #ccc;
+  }
+
+  .app-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+
+  .app-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .app-form-group {
+    margin-bottom: 20px;
+  }
+
+  .app-form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .message textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+  }
+
+  .buttons {
+    text-align: center;
+  }
+
+  .g-recaptcha {
+    margin-bottom: 20px;
+  }
+
+  .app-form-button {
+    background-color: #FFB100;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /*La page message*/
+
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .success {
+    color: #106C5C;
+  }
+
+  .error {
+    color: #DE2309;
+  }

@@ -57,7 +57,7 @@ $bestSells = $controller->getBestSells();
                 if (array_key_exists('auth', $_SESSION)) {
                     echo '<a href="/achat/edit.php?mode=0&id='.$product['id'].'" class="button-buy">Ajouter au panier</a>';
                 } else {
-                    echo '<a href="/account/login.php" class="button-buy">Se connecter</a>';
+                    echo '<a href="/account/login.php" class="button-buy">Ajouter au panier</a>';
                 }
                 ?>
             </div>
@@ -88,7 +88,7 @@ $bestSells = $controller->getBestSells();
                 if (array_key_exists('auth', $_SESSION)) {
                     echo '<a href="/achat/edit.php?mode=0&id='.$product['id'].'" class="button-buy">Ajouter au panier</a>';
                 } else {
-                    echo '<a href="/account/login.php" class="button-buy">Se connecter</a>';
+                    echo '<a href="/account/login.php" class="button-buy">Ajouter au panier</a>';
                 }
                 ?>
             </div>
