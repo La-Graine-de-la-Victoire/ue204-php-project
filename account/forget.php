@@ -12,8 +12,7 @@ if(!empty($_POST) && !empty($_POST['email'])){
         $pdo->prepare('UPDATE users SET resetToken = ?, resetAt = NOW() WHERE id = ?')->execute([$reset_token, $user->id]);
         $_SESSION['flash']['success'] = 'Les instructions du rappel de mot de passe vous ont été envoyées par emails';
         try {
-            var_dump($_POST['email']);
-            var_dump(mail(htmlspecialchars($_POST['email']), 'Réinitiatilisation de votre mot de passe', "Afin de réinitialiser votre mot de passe merci de cliquer sur ce lien\n\nhttp://localhos:8899/account/reset.php?id={$user->id}&token=$reset_token"));
+            mail(htmlspecialchars($_POST['email']), 'Réinitiatilisation de votre mot de passe', "Afin de réinitialiser votre mot de passe merci de cliquer sur ce lien\n\n".WEBSITE_URL."/account/reset.php?id={$user->id}&token=$reset_token");
         } catch (Exception $e) {
             $_SESSION['flash']['danger'] = 'Impossible d\'envoyer les instructions';
         }

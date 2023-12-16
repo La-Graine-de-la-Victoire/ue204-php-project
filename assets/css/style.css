@@ -1058,3 +1058,22 @@ select {
     margin-top: 2rem;
     padding: 2rem;
 }
+
+.legal-container p {
+    font-family: "Avenir Next", sans-serif;
+}
+
+.legal-container strong {
+    display: flex;
+    font-weight: bold;
+    font-family: "Irish Grover", sans-serif;
+    font-size: 1.25rem;
+    color: #106C5C;
+    margin-top: 4rem;
+    margin-bottom: .25rem;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
