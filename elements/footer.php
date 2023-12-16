@@ -10,10 +10,9 @@
             <div class="footer-section links">
                 <h2>Liens Rapides</h2>
                 <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Produits</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">À propos</a></li>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/products.php">Produits</a></li>
+                    <li><a href="/legal/legal.php">Mentions légales</a></li>
                 </ul>
             </div>
             <div class="footer-section contact">

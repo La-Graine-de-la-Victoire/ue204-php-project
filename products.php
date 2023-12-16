@@ -60,7 +60,7 @@ if (!array_key_exists('results', $_GET)) {
                     </div>
                 </div>
                 <div class="search-box">
-                    <label for="__price" class="product-search-big-label">Nom / Description</label>
+                    <label for="__price" class="product-search-big-label">Prix max</label>
                     <div class="row">
                         <input type="number" placeholder="Prix max" name="__price" id="__price">
                     </div>

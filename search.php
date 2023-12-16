@@ -13,7 +13,7 @@ if (empty($name) && empty($price) && empty($maxAge)) {
 $sqlRequest = 'SELECT * FROM products WHERE 1';
 
 if (!empty($name)) {
-    $sqlRequest.= " AND name LIKE :name OR description LIKE :name";
+    $sqlRequest.= " AND name LIKE CONCAT('%', :name, '%') OR description LIKE CONCAT('%', :name, '%')";
 }
 if (!empty($price) && is_numeric($price)) {
     $sqlRequest.= " AND id IN (SELECT id FROM productsMeta WHERE price <= :price)";

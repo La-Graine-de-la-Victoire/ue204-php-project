@@ -102,15 +102,21 @@ include "../../elements/adminTop.php";
                     <div class="product-details">
                         <p><strong>Quantité : </strong> <?php echo  $elements[$item][1] ?></p>
                     </div>
-                    <div class="product-details">
-                        <p>
-                            <strong>Quantité manquante: </strong>
-                            <?php echo  $elements[$item][2] ?>
-                            <a href="/controllers/admin/AdminOrdersController.php?mode=update&id=<?php echo $product['id'] ?>&removequantity=<?php echo $elements[$item][0] ?>">
-                                <i class="fa fa-minus"></i>
-                            </a>
-                        </p>
-                    </div>
+                    <?php
+                        if ($product['status'] == 2) {
+                            ?>
+                            <div class="product-details">
+                                <p>
+                                    <strong>Quantité manquante: </strong>
+                                    <?php echo  $elements[$item][2] ?>
+                                    <a href="/controllers/admin/AdminOrdersController.php?mode=update&id=<?php echo $product['id'] ?>&removequantity=<?php echo $elements[$item][0] ?>">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                </p>
+                            </div>
+                            <?php
+                        }
+                    ?>
                 </div>
 
                 <?php
