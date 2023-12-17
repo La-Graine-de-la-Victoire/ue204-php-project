@@ -1,5 +1,4 @@
 <?php
-require_once 'utils/ProductUtils.php';
 require_once 'controllers/ProductsController.php';
 require_once 'controllers/ClientProductController.php';
 require_once 'utils/imageUtils.php';
@@ -14,7 +13,6 @@ if (!array_key_exists('results', $_GET)) {
     $products = json_decode($_GET['results'], true);
 }
 ?>
-
 
 <?php include 'elements/head.php';?>
 <?php include 'elements/header.php';?>

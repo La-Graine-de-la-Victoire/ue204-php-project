@@ -449,8 +449,8 @@ header {
     border-radius: 50px;
     cursor: pointer;
     font-size: 15px;
+    width: 80%;
     box-shadow: 0 1px 10px #106c5d8a;
-    
 }
 
 .article .description-product {
@@ -559,6 +559,7 @@ footer p {
     justify-content: space-around;
     align-items: center;
     margin: 2rem;
+    max-width: 25rem;
 }
 
 .product-image {
@@ -639,9 +640,8 @@ footer p {
 .search-product-box {
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 2rem;
-    width: 80%;
+    width: 100rem;
 }
 
 .search-product-box-title {
@@ -660,6 +660,19 @@ footer p {
 
 .search-box {
     margin: 2rem 0;
+}
+
+.button-search {
+    display: flex;
+    background-color: #FFB100;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 15px;
+    padding: .5rem 4rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 input,
@@ -776,6 +789,9 @@ select {
 
 .basket-products {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .basket-product {
@@ -786,6 +802,7 @@ select {
     border-radius:.5rem;
     font-family: "Avenir Next", sans-serif;
     align-items: center;
+    max-width: 25rem;
 }
 
 .basket-product .product-title {
@@ -1176,3 +1193,26 @@ select {
   .error {
     color: #DE2309;
   }
+
+.legal-container p {
+    font-family: "Avenir Next", sans-serif;
+}
+
+.legal-container strong {
+    display: flex;
+    font-weight: bold;
+    font-family: "Irish Grover", sans-serif;
+    font-size: 1.25rem;
+    color: #106C5C;
+    margin-top: 4rem;
+    margin-bottom: .25rem;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.basket-container {
+    margin: 0 10rem;
+}

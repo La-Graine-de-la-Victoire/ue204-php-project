@@ -75,13 +75,6 @@ $bestSells = $controller->getBestSells();
             ?>
             <div class="article">
                 <?php showImage(!empty($product['image']) ? $product['image'] : '', 'Image de présentation de '.$product['description'], 'product'); ?>
-                <!--                    <div class="rating">-->
-                <!--                        <span class="star">&#9733;</span>-->
-                <!--                        <span class="star">&#9733;</span>-->
-                <!--                        <span class="star">&#9733;</span>-->
-                <!--                        <span class="star">&#9733;</span>-->
-                <!--                        <span class="star">&#9734;</span>-->
-                <!--                    </div>-->
                 <p class="description-product"><?php echo $product['description']?></p>
                 <p class="price"><?php echo $product['price']?> €</p>
                 <?php

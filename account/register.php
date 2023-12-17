@@ -66,7 +66,7 @@ if(isset($_POST['forminscription'])) {
     Votre compte chez nous sera activé dés que vous aurez appuyer sur le lien ci-dessous:
     </p>
     <div align="center">
-    <a href="http://localhost:8888/UE_L204/account/confirm.php?id='.$user_id.'&token='.$token.'">Confirmez votre compte !</a>
+    <a href="'.WEBSITE_URL.'/account/confirm.php?id='.$user_id.'&token='.$token.'">Confirmez votre compte !</a>
     </div>
     <p></p>
     </body>
@@ -83,7 +83,6 @@ if(isset($_POST['forminscription'])) {
 }
 
 ?>
-
 
 <?php include '../elements/head.php';?>
 <?php include '../elements/header.php';?>

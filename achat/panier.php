@@ -45,7 +45,7 @@ $currentOrder = $order->getCurrentClientOrder();
         <h2>Mon panier</h2>
     </div>
 
-    <div class="container">
+    <div class="basket-container">
         <?php
         if ($currentOrder['count'] == 0) {
             ?>
