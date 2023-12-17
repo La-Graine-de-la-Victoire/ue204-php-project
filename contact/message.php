@@ -31,6 +31,11 @@
     <title>Succès de l'envoie</title>
 </head>
 <body>
-    
+
+    <div class="container">
+        <div class="search-box">
+            <a href="/contact/contact.php" class=" button-connect">Retour</a>
+        </div>
+    </div>
 </body>
 </html>

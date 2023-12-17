@@ -1,0 +1,19 @@
+=========
+= UE L204  =
+=========
+
+Groupe 6 : fichier connexion à la BDD
+------------------------------------------------------
+
+Pour vous connecter à la BDD vous pouvez utiliser la configuration suivante:
+
+Serveur : localhost
+Nom de la base : ludotheque
+Utilisateur : root
+Mot de passe : /selon la consigne il n'est pas divulgué\
+Port : 8889 (port par défaut sur MAMP)
+
+Sinon vous pouvez modifier le fichier :
+/config.php
+Pour modifier les variables constantes utilisées pour personnaliser les
+informations de connexion.

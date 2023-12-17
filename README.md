@@ -16,7 +16,7 @@ basique du stock de chaque produit.
 | Host     | localhost / 127.0.0.1 |
 | DB Name  | ludotheque            |
 | User     | root                  |
-| Password | root                  |
+| Password | selon la consigne il n'est pas divulgué                  |
 | Port     | 8889                  |
 
 **Les informations de connexion à la base de données sont modifiables dans le fichier :**

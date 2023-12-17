@@ -18,22 +18,8 @@ if(isset($_POST['submitpost'])) {
   }
 }?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="../assets/css/style.css">
-      <title>JoueTopia</title>
-
-  <title>Contact</title>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
-<body>
-
-
-
+<?php include '../elements/head.php';?>
+<?php include '../elements/header.php';?>
   <div class="body_contact">
     <div class="background">
       <div id="containere">
@@ -74,11 +60,4 @@ if(isset($_POST['submitpost'])) {
       </div>
     </div>
   </div>
-
-</div>
-
-
-</div>
-</body>
-
-</html>
+<?php include '../elements/footer.php';?>
